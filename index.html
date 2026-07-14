@@ -103,7 +103,12 @@
   .brief-link:hover{background:var(--accent-soft)}
   .brief-link .bl-arrow{font-family:'JetBrains Mono';flex-shrink:0}
   .pips{display:flex;gap:5px;flex-wrap:wrap;margin-top:9px}
-  .pip{font-size:9px;font-weight:800;padding:2px 8px;border-radius:20px;font-family:'JetBrains Mono';text-transform:uppercase;letter-spacing:.04em}
+  .pip{font-size:10px;font-weight:800;padding:3px 9px;border-radius:20px;letter-spacing:.01em;display:inline-flex;align-items:center;gap:3px}
+  .read-hint{background:var(--brand-light);border:1px solid #DBCEF4;border-radius:13px;padding:11px 15px;font-size:12px;line-height:1.55;color:var(--ink-soft);margin-bottom:16px;display:flex;gap:9px;align-items:flex-start}
+  .read-hint b{color:var(--brand);font-weight:800}
+  .read-hint .rh-ico{font-size:15px;flex-shrink:0;line-height:1.3}
+  .lnow{color:var(--green);font-weight:800;white-space:nowrap}
+  .ltail{color:var(--accent-deep);font-weight:800;white-space:nowrap}
   .cardfoot{display:flex;align-items:flex-end;gap:8px;margin-top:11px}
   .cardfoot .srcchips{flex:1;margin-top:0}
   .ch-right{margin-left:auto;display:flex;align-items:center;gap:6px}
@@ -298,10 +303,10 @@ const {useState} = React;
 const WEEK = "July 14–20, 2026";
 
 const PILLARS = {
-  PWP:{name:"PLAY WITH PURPOSE", color:"var(--coral)", glyph:"🧩"},
-  MAP:{name:"THE MILESTONE MAP", color:"var(--teal)", glyph:"🗺️"},
-  YGT:{name:"YOU'VE GOT THIS", color:"var(--pink)", glyph:"💜"},
-  BOJ:{name:"BOX OF JOY", color:"var(--green)", glyph:"🎁"},
+  PWP:{name:"PLAY WITH PURPOSE", short:"Play With Purpose", color:"var(--coral)", glyph:"🧩"},
+  MAP:{name:"THE MILESTONE MAP", short:"Milestone Map", color:"var(--teal)", glyph:"🗺️"},
+  YGT:{name:"YOU'VE GOT THIS", short:"You've Got This", color:"var(--pink)", glyph:"💜"},
+  BOJ:{name:"BOX OF JOY", short:"Box of Joy", color:"var(--green)", glyph:"🎁"},
 };
 const DNA = {"activity-demo":"🎬","milestone-explainer":"🗺️","expert-take":"🩺","parent-hack":"🛟","unbox-with-payoff":"📦","ugc-testimonial":"💬","no-baby-explainer":"🆕","founder-origin":"⭐","seasonal-drop":"🍂"};
 
@@ -337,9 +342,9 @@ const MILESTONE_MAP = [
 ];
 
 const WELCOME_HIGHLIGHTS = [
-  {t:"Parents already follow you for expertise", d:"One wake-window activities video did 1.6M views — while product unboxings sit near 120. Developmental value is your growth engine."},
-  {t:"The science that makes the box undeniable", d:"Kids given 4 toys play longer and more creatively than with 16. A curated, rotating box beats a toy haul — and you can prove it."},
-  {t:"Screen-free is where the culture is moving", d:"'No-phone' parenting is now an identity, not a guilt trip. A physical, screen-free developmental box is exactly the moment."},
+  {t:"Ride the format that's peaking this week", d:"The nostalgic 'then / now' carousel (Olivia Rodrigo's 'u + me') is all over the feed right now — run 'one skill, every stage' before the sound cools."},
+  {t:"Daycare season is ~4 weeks out — shoot now", d:"Separation-anxiety content crests mid-August. Film the transition-toy piece THIS week so it lands the moment parents start searching."},
+  {t:"Summer sensory demand is at its peak", d:"Sensory-play searches are surging with the season — post the age-locked, taste-safe piece now, while summer is doing the work for you."},
 ];
 const WELCOME_MOVES = [
   {t:"Ride the winner up an age band", d:"Shoot the 6–7mo wake-window version this week while the format is proven and hot. Same format, next stage — the start of a recurring age-band franchise."},
@@ -535,12 +540,14 @@ function IntelBrief({onDrop,onOpen}){
   const [tab,setTab]=useState("pulse");
   const tabs=[["pulse","Cultural Pulse",PULSE.length],["trends","Category + Research",TRENDS.length],["comps","Competitor Watch",COMPETITORS.length],["amb","Brand Ambassadors",AMBASSADORS.length],["panel","Parent Panel",PANEL.length]];
   const briefById=id=>BRIEFS.find(b=>b.id===id);
-  const Pips=({pillars,terr})=>(<div className="pips">{(pillars||[]).map(pk=>(<span className="pip" key={pk} style={{background:PILLARS[pk].color+"22",color:PILLARS[pk].color}}>{pk}</span>))}{terr&&<span className="pip" style={{background:"var(--brand-light)",color:"var(--brand)"}}>{terr}</span>}</div>);
-  const DroveLink=({id})=>{const b=briefById(id);if(!b)return null;return(<button className="brief-link" onClick={()=>onOpen(b)}><span className="bl-arrow">→ drove brief {b.id.split("-").slice(0,1)}·{b.id.split("-").pop()}</span><span style={{fontWeight:700,color:"var(--ink-soft)"}}>{b.concept.length>46?b.concept.slice(0,46)+"…":b.concept}</span></button>);};
+  const Pips=({pillars})=>(<div className="pips">{(pillars||[]).map(pk=>(<span className="pip" key={pk} title={"This signal feeds the “"+PILLARS[pk].short+"” content pillar"} style={{background:PILLARS[pk].color+"1c",color:PILLARS[pk].color}}>{PILLARS[pk].glyph} {PILLARS[pk].short}</span>))}</div>);
+  const DroveLink=({id})=>{const b=briefById(id);if(!b)return null;return(<button className="brief-link" title="Open the content brief this signal generated" onClick={()=>onOpen(b)}><span className="bl-arrow">↳ we turned this into a brief:</span><span style={{fontWeight:700,color:"var(--ink)"}}>{b.concept.length>52?b.concept.slice(0,52)+"…":b.concept}</span></button>);};
   const FreshChip=({live})=>(<span className={"fresh-chip "+(live?"fc-fresh":"fc-comp")} title={live?"A live signal we're tracking this week":"A durable structural tailwind at the brand's back"}>{live?"● LIVE NOW":"◈ TAILWIND"}</span>);
   return (
     <div className="wrap">
       <div className="subtabs">{tabs.map(([k,l,n])=>(<button key={k} className={"subtab"+(tab===k?" on":"")} onClick={()=>setTab(k)}>{l}<span className="badge">{n}</span></button>))}</div>
+
+      {(tab==="pulse"||tab==="trends") && (<div className="read-hint"><span className="rh-ico">👀</span><div><b>New here? How to read a card:</b> each one is a real signal we found (tap the grey <b>source chips</b> to verify it), then <b>▶ The Play</b> is exactly how we'd use it. A <span className="lnow">● LIVE NOW</span> tag means it's moving this week; <span className="ltail">◈ TAILWIND</span> means a durable force at your back. The yellow <b>↳ we turned this into a brief</b> link opens the ready-to-shoot content it generated.</div></div>)}
 
       {tab==="pulse" && (<>
         <div className="mom-cols">
@@ -555,11 +562,11 @@ function IntelBrief({onDrop,onOpen}){
         </div>
         <div className="grid grid-2">{PULSE.map((p,i)=>(
           <div className="card" key={i}><div className="rail" style={{background:p.v==="high"?"var(--coral)":"var(--accent-deep)"}}></div>
-            <div className="card-head"><div className="glyph" style={{background:'var(--cream-deep)'}}>{p.glyph}</div><div className="eyebrow">{p.type}</div><div className="ch-right"><FreshChip live={p.live}/><span className={"vbadge "+(p.v==="high"?"vhigh":p.v==="medium"?"vmed":"vlow")}>{p.v.toUpperCase()}</span></div></div>
+            <div className="card-head"><div className="glyph" style={{background:'var(--cream-deep)'}}>{p.glyph}</div><div className="eyebrow">{p.type}</div><div className="ch-right"><FreshChip live={p.live}/><span title="How strongly this signal is moving" className={"vbadge "+(p.v==="high"?"vhigh":p.v==="medium"?"vmed":"vlow")}>{p.v.toUpperCase()}</span></div></div>
             <h3>{p.h}</h3><p className="detail">{p.d}</p>
             <div className="playbox"><span className="plabel">▶ The Play</span>{p.play}</div>
             <DroveLink id={p.drove}/>
-            <Pips pillars={p.pillars} terr={p.terr}/>
+            <Pips pillars={p.pillars}/>
             <div className="cardfoot"><SrcChips src={p.src}/><button className="dropbtn" onClick={()=>onDrop(p.h)}>↓ Send to Studio</button></div>
           </div>))}
         </div>
@@ -567,7 +574,7 @@ function IntelBrief({onDrop,onOpen}){
 
       {tab==="trends" && (<div className="grid grid-2">{TRENDS.map((t,i)=>(
         <div className="card" key={i}><div className="rail" style={{background:'var(--brand)'}}></div>
-          <div className="card-head"><div className="glyph" style={{background:'var(--brand-light)'}}>{t.glyph}</div><div className="eyebrow">{t.type}</div><div className="ch-right"><FreshChip live={t.live}/><span className={"vbadge "+(t.v==="high"?"vhigh":t.v==="medium"?"vmed":"vlow")}>{t.v.toUpperCase()}</span></div></div>
+          <div className="card-head"><div className="glyph" style={{background:'var(--brand-light)'}}>{t.glyph}</div><div className="eyebrow">{t.type}</div><div className="ch-right"><FreshChip live={t.live}/><span title="How strongly this signal is moving" className={"vbadge "+(t.v==="high"?"vhigh":t.v==="medium"?"vmed":"vlow")}>{t.v.toUpperCase()}</span></div></div>
           <h3>{t.h}</h3><p className="detail">{t.d}</p>
           <div className="playbox"><span className="plabel">▶ Engine Angle</span>{t.play}</div>
           <DroveLink id={t.drove}/>
@@ -635,6 +642,7 @@ function ContentBriefs({onOpen}){
         <div><h2>THIS WEEK'S BEATS</h2><p>ride the proven expertise · build owned authority · ladder every free tip to the box</p></div>
         <div className="ride-meta">{BRIEFS.length} briefs · {scripted} scripted video<br/>{noBaby} need no baby on set 🎬</div>
       </div>
+      <div className="read-hint"><span className="rh-ico">👀</span><div><b>New here? How to read a brief:</b> each card is a ready-to-shoot content idea for your team, grouped by the four <b>content pillars</b> (the colored headings). The green <b>score</b> is how confident we are it'll perform — hover it for the math. <b>Click any card</b> to open the full brief: hooks, captions, a shot list, and a pre-test from four synthetic parents. <b>no baby ✓</b> means it needs no baby on camera to shoot.</div></div>
       <CastingMeter/>
       {groups.map(g=>(
         <div key={g.pk}>
@@ -646,7 +654,7 @@ function ContentBriefs({onOpen}){
                 {c&&(<span className={"conv c"+c.band}>{c.band} {c.score}<span className="tip">voice <b>{c.voice}</b> · panel <b>{c.panel}</b> · pulse <b>{c.pulse}</b><br/>avg {c.base} + recency {c.rec} = <b>{c.score}</b><br/>{c.band==="HIGH"?"ship first":c.band==="MEDIUM"?"solid bet":"hedge"}</span></span>)}
               </div>
               <h4>{b.concept}</h4>
-              <div className="brief-bottom"><span className="chip brand">{b.dna}</span><span className="chip plat">{b.plat}</span>{b.noBaby&&<span className="nobaby">no baby ✓</span>}{b.anchor&&<span className="anchor-tag">⚡ anchor</span>}</div>
+              <div className="brief-bottom"><span className="chip brand" title="Format type">{b.dna}</span><span className="chip plat" title="Where it posts">{b.plat}</span>{b.noBaby&&<span className="nobaby" title="Can be produced without a baby on camera">no baby ✓</span>}{b.anchor&&<span className="anchor-tag" title="A priority 'big swing' to lead the week">⚡ anchor</span>}</div>
             </div>);})}
           </div>
         </div>
@@ -817,6 +825,7 @@ function WIPTab({kind}){
 function App(){
   const [nav,setNav]=useState("intel");const [memo,setMemo]=useState(true);const [brief,setBrief]=useState(null);const [diag,setDiag]=useState(false);
   const NAV=[["intel","Intelligence Brief","📡"],["briefs","Content Briefs","📝"],["map","Milestone Map","🗺️","new"],["studio","Studio","🧠"],["how","How It Works","⚙️"],["cal","Calendar","📅","wip"],["perf","Performance","📊","wip"]];
+  const NAV_DESC={intel:"The trends we're watching + how to ride them",briefs:"Ready-to-shoot content ideas for your team",map:"The age-by-age logic behind every box",studio:"Your always-on content strategist (live at launch)",how:"How the engine turns a trend into a brief",cal:"A rolling content calendar (coming soon)",perf:"Reach + subscriber results (coming soon)"};
   return (
     <>
       {memo&&<MondayMemo onClose={()=>setMemo(false)} onGo={()=>{setMemo(false);setNav("intel");}}/>}
@@ -825,7 +834,7 @@ function App(){
       <div className="app">
         <div className="side">
           <div className="logo"><div className="logo-blocks"><div className="blk" style={{background:'var(--accent)'}}>1</div><div className="blk" style={{background:'var(--coral)',color:'#fff'}}>2</div><div className="blk" style={{background:'var(--teal)',color:'#fff'}}>3</div></div><div className="logo-name">BABY BOX</div><div className="logo-sub">a box of joy for your bundle of joy</div></div>
-          {NAV.map(n=>(<button key={n[0]} className={"nav-item"+(nav===n[0]?" on":"")} onClick={()=>setNav(n[0])}><span className="ico">{n[2]}</span>{n[1]}{n[3]==="new"&&<span className="nav-new">NEW</span>}{n[3]==="wip"&&<span className="nav-wip">WIP</span>}</button>))}
+          {NAV.map(n=>(<button key={n[0]} title={NAV_DESC[n[0]]} className={"nav-item"+(nav===n[0]?" on":"")} onClick={()=>setNav(n[0])}><span className="ico">{n[2]}</span>{n[1]}{n[3]==="new"&&<span className="nav-new">NEW</span>}{n[3]==="wip"&&<span className="nav-wip">WIP</span>}</button>))}
           <div className="side-spacer"></div>
           <Btn onClick={()=>setDiag(true)}>📮 Diagnostic Inbox</Btn>
           <button className="howlink" onClick={()=>setNav("how")}>↓ how it works</button>
@@ -833,7 +842,7 @@ function App(){
         <div className="main">
           <div className="page-head">
             <div><h1>{ {intel:"Intelligence Brief",briefs:"Content Briefs",map:"Milestone Map",studio:"Studio",how:"How It Works",cal:"Calendar",perf:"Performance"}[nav] }</h1>
-              <p className="dek">{ {intel:"What's moving in the baby-development world — and what 123 Baby Box can authentically ride this week.",briefs:"Production-ready briefs for your team. Ranked by conviction. Every one built to ride, own, or ladder.",map:"The age-stage logic behind every box — the surface that makes your personalization visible.",studio:"Your always-on content strategist, loaded with the full engine context.",how:"One signal, start to finish — how a 1.6M view becomes next week's brief.",cal:"A rolling content calendar (preview).",perf:"Reach, saves, and subscriber attribution (preview)."}[nav] }</p>
+              <p className="dek">{ {intel:"The trends we're watching this week — and exactly how 123 Baby Box could ride each one.",briefs:"Ready-to-shoot content ideas, built from the trends on the left. Click any card to open the full brief.",map:"The age-by-age logic behind every box — and the surface that finally makes your personalization visible.",studio:"Your always-on content strategist, loaded with the full engine context.",how:"One trend, start to finish — how a moment we spot becomes next week's content.",cal:"A rolling content calendar (coming once we're working together).",perf:"Reach, saves, and subscriber results (coming once we're working together)."}[nav] }</p>
             </div>
             <div className="pill"><span className="live-dot"></span>Live · {WEEK}</div>
           </div>
