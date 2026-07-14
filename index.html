@@ -215,6 +215,12 @@
   .perf-legend span{display:flex;align-items:center;gap:6px}
   .sw{width:13px;height:13px;border-radius:4px}
   .perf-punch{background:var(--brand-light);border-left:4px solid var(--brand);border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.5;margin-top:16px}
+  .funnel{display:flex;align-items:center;gap:10px;margin:18px 0 4px;flex-wrap:wrap}
+  .fstep{flex:1;min-width:130px;background:var(--cream);border:1px solid var(--border);border-radius:14px;padding:16px 12px;text-align:center}
+  .fstep .fnum{font-family:'Grandstander';font-weight:900;font-size:27px;line-height:1}
+  .fstep .flbl{font-size:11.5px;color:var(--ink-soft);margin-top:5px;line-height:1.3}
+  .farrow{font-family:'JetBrains Mono';font-size:15px;color:var(--ink-soft);flex-shrink:0}
+  @media(max-width:600px){.funnel{flex-direction:column}.farrow{transform:rotate(90deg)}}
 
   /* Milestone Map */
   .mm-bands{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
@@ -342,14 +348,14 @@ const MILESTONE_MAP = [
 ];
 
 const WELCOME_HIGHLIGHTS = [
-  {t:"Ride the format that's peaking this week", d:"The nostalgic 'then / now' carousel (Olivia Rodrigo's 'u + me') is all over the feed right now — run 'one skill, every stage' before the sound cools."},
-  {t:"Daycare season is ~4 weeks out — shoot now", d:"Separation-anxiety content crests mid-August. Film the transition-toy piece THIS week so it lands the moment parents start searching."},
-  {t:"Summer sensory demand is at its peak", d:"Sensory-play searches are surging with the season — post the age-locked, taste-safe piece now, while summer is doing the work for you."},
+  {t:"A format worth jumping on this week", d:"The nostalgic 'then / now' photo trend (Olivia Rodrigo's 'u + me') is everywhere right now. Showing the same skill from newborn to toddler is a lovely way to make 'grows with your baby' feel real."},
+  {t:"Daycare season is about a month away", d:"Lots of families start daycare in August, and drop-off worries peak with it. A comforting 'starting daycare' piece filmed this week would be ready right when parents go looking."},
+  {t:"Summer is prime time for sensory play", d:"Parents are searching for sensory-play ideas all summer. A simple, taste-safe one shared now rides a wave that's already rolling."},
 ];
 const WELCOME_MOVES = [
-  {t:"Ride the winner up an age band", d:"Shoot the 6–7mo wake-window version this week while the format is proven and hot. Same format, next stage — the start of a recurring age-band franchise."},
-  {t:"Pilot the named-expert 'Milestone Map'", d:"Anchor one recurring series to a credentialed voice (peds SLP/OT). Stop borrowing 'a speech therapist' one video at a time — build the face parents return for."},
-  {t:"Launch a no-baby format", d:"Ship the 'which toy for which milestone' carousel — zero casting, makes your personalization visible, and posts on a schedule instead of a shoot day."},
+  {t:"Turn your biggest hit into a series", d:"That wake-window activities video really worked — so it might be worth trying the 6–7 month version next, while the idea's still fresh. Do the same for each age, and it becomes a series parents look forward to every month."},
+  {t:"Give the expertise a face", d:"Right now the tips come from a different, un-named person each time. Imagine one trusted voice — a speech or occupational therapist — hosting a regular series. A face parents recognize tends to build more trust than a one-off."},
+  {t:"Try a post that doesn't need a baby", d:"Something simple like a 'which toy for which age' post — nothing to film, no baby to schedule around. It shows how the box is matched to each stage, and you could share it any day."},
 ];
 const GREEN_SHOOTS = [
   {t:"The Named-Expert Franchise", size:"medium", horizon:"this-quarter", territory:"owned authority", move:"Sign one peds SLP or OT to a recurring 'Milestone Map' series. Own the credibility Lovevery owns; seize the Monti Kids empty chair."},
@@ -514,7 +520,7 @@ function MondayMemo({onClose,onGo}){
           <button className="x" onClick={onClose}>×</button>
           <div style={{fontFamily:'JetBrains Mono',fontSize:11,letterSpacing:'.1em',opacity:.85}}>{WEEK}</div>
           <h1 style={{fontSize:27,margin:'6px 0 2px',fontWeight:900}}>The Monday Memo</h1>
-          <div style={{fontFamily:'Fraunces',fontStyle:'italic',fontSize:14,opacity:.92}}>your week, read before the research — a hypothesis to argue with</div>
+          <div style={{fontFamily:'Fraunces',fontStyle:'italic',fontSize:14,opacity:.92}}>your week at a glance — a first read to react to, not a finished plan</div>
         </div>
         <div className="modal-body">
           <div className="m-sec">
@@ -757,8 +763,21 @@ function HowItWorks(){
       <div className="section-eyebrow">The Read — the one chart that shaped everything</div>
       <PerfChart/>
 
+      <div className="perf-card">
+        <h3>Reach isn't the problem. Keeping it is.</h3>
+        <div className="sub">One video reached 1.6M people. Here's what tends to happen to all that attention.</div>
+        <div className="funnel">
+          <div className="fstep"><div className="fnum" style={{color:'var(--brand)'}}>1.6M</div><div className="flbl">saw one video</div></div>
+          <div className="farrow">→</div>
+          <div className="fstep"><div className="fnum" style={{color:'var(--accent-deep)'}}>~10K–32K</div><div className="flbl">follow the account<br/>(TikTok · Instagram)</div></div>
+          <div className="farrow">→</div>
+          <div className="fstep"><div className="fnum" style={{color:'var(--coral)'}}>a fraction</div><div className="flbl">subscribe to the box</div></div>
+        </div>
+        <div className="perf-punch">Over a million people met the brand through a single video — but very few stayed. The audience is already showing up; what's missing is the gentle path from a one-time view, to a follow, to a box on the doorstep. Reach this brand has in spades. <b>Turning that reach into a following, and a following into subscribers, is the real opportunity</b> — and it's exactly what this engine is built to help with.</div>
+      </div>
+
       <div className="step-band">
-        {[["01","Listen","We read your feed + the category every week."],["02","Calibrate","We score everything on your voice + the Casting Rule."],["03","Brief","You get production-ready briefs, not research."],["04","Produce","Your team shoots + distributes. The engine never posts for you."]].map((st,i)=>(<div className={"step-cell"+(i===3?" you":"")} key={i}><div className="step-num">{st[0]}</div><h4>{st[1]}</h4><p>{st[2]}</p></div>))}
+        {[["01","Listen","We read your feed + the category every week."],["02","Calibrate","We check each idea against your brand's voice and your goals."],["03","Brief","You get production-ready briefs, not research."],["04","Produce","Your team shoots + distributes. The engine never posts for you."]].map((st,i)=>(<div className={"step-cell"+(i===3?" you":"")} key={i}><div className="step-num">{st[0]}</div><h4>{st[1]}</h4><p>{st[2]}</p></div>))}
       </div>
 
       <div className="section-eyebrow">The engine thinking — one signal → one brief</div>
