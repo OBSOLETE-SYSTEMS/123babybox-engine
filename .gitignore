@@ -1,0 +1,9 @@
+# ignore everything except the public engine (belt-and-suspenders vs. leaking strategy docs)
+*.md
+!README.md
+RESEARCH_*
+CLAUDE.md
+BRAND_THESIS.md
+DIAGNOSTIC_NOTES.md
+ONE_PAGER.html
+.DS_Store
