@@ -181,13 +181,115 @@
   .capvar .cvlabel{font-family:'JetBrains Mono';font-size:9px;letter-spacing:.08em;color:var(--ink-soft);font-weight:700;text-transform:uppercase;margin-bottom:5px;display:flex;justify-content:space-between}
   .capvar p{margin:0;font-size:13px;line-height:1.5}
   .copybtn{background:var(--cream-deep);border:none;font-size:9px;font-weight:800;padding:2px 8px;border-radius:20px;cursor:pointer;font-family:'JetBrains Mono';color:var(--ink-soft)}
-  /* phone shot list */
-  .phone-row{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px}
-  .phone{min-width:130px;width:130px;height:232px;background:var(--ink);border-radius:18px;padding:6px;flex-shrink:0;position:relative}
-  .phone-screen{background:linear-gradient(160deg,var(--brand-light),#fff);border-radius:13px;height:100%;padding:10px;display:flex;flex-direction:column}
-  .phone-scene{font-family:'JetBrains Mono';font-size:8px;color:var(--brand);font-weight:700;margin-bottom:5px}
-  .phone-txt{font-size:11px;line-height:1.35;font-weight:700;color:var(--ink)}
-  .phone-cap{margin-top:auto;font-size:8.5px;color:var(--ink-soft);line-height:1.3}
+  /* ===== Production Map ===== */
+  .prod-lead{font-size:12px;color:var(--ink-soft);margin-bottom:12px}
+  .prod-lead b{color:var(--brand)}
+  .prod-block{background:var(--paper);border:1px solid var(--border);border-radius:14px;padding:14px 15px;margin-bottom:11px}
+  .prod-h{font-family:'Nunito';font-weight:900;font-size:14px;color:var(--brand);display:flex;align-items:center;gap:7px;margin-bottom:11px}
+  .prod-h .ph-tags{margin-left:auto;display:flex;gap:6px}
+  .prod-meta{font-size:12.5px;line-height:1.5;margin-bottom:8px}
+  .prod-meta:last-child{margin-bottom:0}
+  .pm-k{display:inline-block;font-family:'JetBrains Mono';font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:800;background:var(--cream-deep);padding:2px 7px;border-radius:20px;margin-right:8px;vertical-align:middle}
+  .prod-tip{background:var(--brand-light);border-radius:10px;padding:9px 12px;font-size:12px;line-height:1.45;color:var(--ink);margin-top:11px}
+  .edit-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px 14px}
+  .edit-grid .eg{font-size:12px;line-height:1.4}
+  .edit-grid .eg .pm-k{margin-bottom:3px}
+  .chan-row{display:flex;gap:11px;align-items:flex-start;padding:10px 0;border-bottom:1px dashed var(--border)}
+  .chan-row:last-child{border-bottom:none;padding-bottom:0}
+  .chan-badge{font-size:19px;flex-shrink:0;width:34px;height:34px;border-radius:10px;display:grid;place-items:center}
+  .chan-fb{background:#E7F0FA}.chan-ig{background:var(--brand-light)}.chan-tt{background:var(--cream-deep)}
+  .chan-who{font-family:'JetBrains Mono';font-size:9px;letter-spacing:.04em;font-weight:800;color:var(--brand);text-transform:uppercase;margin-bottom:2px}
+  .chan-cut{font-size:12px;line-height:1.45;color:var(--ink)}
+  .exp-tag{font-family:'JetBrains Mono';font-size:8px;font-weight:800;letter-spacing:.06em;color:var(--accent-deep);background:var(--accent-pale);border:1px solid var(--accent);padding:2px 8px;border-radius:20px}
+  .proven-tag{font-family:'JetBrains Mono';font-size:8px;font-weight:800;letter-spacing:.06em;color:#2E8B57;background:#E7F5EC;border:1px solid var(--green);padding:2px 8px;border-radius:20px}
+  .exp-box{background:var(--accent-pale);border:1px solid var(--accent);border-radius:10px;padding:10px 12px;margin-bottom:9px}
+  .exp-box .prod-meta:last-child{margin-bottom:0}
+  /* phone storyboard */
+  .phone-row{display:flex;gap:11px;overflow-x:auto;padding-bottom:6px;margin-bottom:2px}
+  .phone{min-width:166px;width:166px;height:290px;background:var(--ink);border-radius:20px;padding:6px;flex-shrink:0;position:relative}
+  .phone-screen{background:linear-gradient(165deg,var(--brand-light),#fff);border-radius:15px;height:100%;padding:11px;display:flex;flex-direction:column}
+  .phone-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .phone-scene{font-family:'JetBrains Mono';font-size:8.5px;color:var(--brand);font-weight:800;letter-spacing:.05em}
+  .phone-sec{font-family:'JetBrains Mono';font-size:8px;color:var(--ink-soft);font-weight:700;background:var(--cream-deep);padding:1px 6px;border-radius:20px}
+  .phone-type{font-family:'JetBrains Mono';font-size:8px;font-weight:700;color:var(--accent-deep);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+  .phone-do{font-size:11px;line-height:1.4;color:var(--ink);font-weight:600}
+  .phone-osd{margin-top:9px;background:rgba(41,36,32,.86);color:#fff;font-size:10px;line-height:1.35;font-weight:700;padding:6px 8px;border-radius:8px;align-self:flex-start;max-width:100%}
+  .phone-osd .osl{display:block;font-family:'JetBrains Mono';font-size:7px;letter-spacing:.1em;opacity:.7;margin-bottom:2px;font-weight:800}
+  /* words + panel-live */
+  .words-sub{font-family:'JetBrains Mono';font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-bottom:7px}
+  .panel-head{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:11px;flex-wrap:wrap}
+  .panel-note{font-size:11.5px;color:var(--ink-soft);font-style:italic;font-family:'Fraunces';line-height:1.4;flex:1;min-width:170px}
+  .panel-run{background:var(--brand);color:#fff;border:none;font-family:'JetBrains Mono';font-size:10px;font-weight:800;letter-spacing:.04em;padding:7px 12px;border-radius:20px;cursor:pointer;white-space:nowrap}
+  .panel-run:disabled{opacity:.55;cursor:default}
+  .panel-live-badge{font-family:'JetBrains Mono';font-size:8px;font-weight:800;letter-spacing:.08em;color:#2E8B57;background:#E7F5EC;border:1px solid var(--green);padding:3px 8px;border-radius:20px}
+  .panel-share{margin-left:auto;font-family:'JetBrains Mono';font-size:8px;color:var(--ink-soft);font-weight:700}
+  .panel-chan{font-family:'JetBrains Mono';font-size:8px;font-weight:800;letter-spacing:.04em;color:var(--brand);background:var(--brand-light);padding:2px 7px;border-radius:20px}
+  /* ===== Studio chat ===== */
+  .studio{display:flex;flex-direction:column;height:calc(100vh - 176px);min-height:440px;background:var(--paper);border:1px solid var(--border);border-radius:18px;overflow:hidden}
+  .st-ctx{background:linear-gradient(120deg,var(--brand-deep),var(--brand));color:#fff;padding:10px 16px;display:flex;align-items:center;gap:11px;font-size:12.5px}
+  .st-ctx .stx-lbl{font-family:'JetBrains Mono';font-size:8.5px;letter-spacing:.1em;opacity:.85;text-transform:uppercase;white-space:nowrap}
+  .st-ctx b{font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .st-ctx .stx-x{margin-left:auto;background:rgba(255,255,255,.2);border:none;color:#fff;width:22px;height:22px;border-radius:50%;cursor:pointer;font-size:14px;line-height:1;flex-shrink:0}
+  .st-scroll{flex:1;overflow-y:auto;padding:22px}
+  .st-empty{max-width:580px;margin:5vh auto 0;text-align:center}
+  .st-empty h2{font-size:24px;font-weight:900;margin:10px 0 6px}
+  .st-empty p{font-size:13px;color:var(--ink-soft);line-height:1.55;margin:0 auto 20px;max-width:470px}
+  .st-sugg{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:580px;margin:0 auto}
+  .st-sg{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:12px 13px;text-align:left;cursor:pointer;font-size:12.5px;line-height:1.4;color:var(--ink);transition:.12s}
+  .st-sg:hover{border-color:var(--brand);background:var(--brand-light)}
+  .st-sg .sgl{display:block;font-family:'JetBrains Mono';font-size:8px;letter-spacing:.08em;color:var(--brand);margin-bottom:4px;font-weight:800}
+  .msg{display:flex;gap:10px;margin-bottom:16px;max-width:780px}
+  .msg.user{margin-left:auto;flex-direction:row-reverse}
+  .msg-av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:15px;flex-shrink:0}
+  .msg.user .msg-av{background:var(--accent);color:var(--brand-deep)}
+  .msg.bot .msg-av{background:var(--brand);color:#fff}
+  .msg-bub{border-radius:14px;padding:11px 15px;font-size:13.5px;line-height:1.6}
+  .msg.user .msg-bub{background:var(--brand);color:#fff}
+  .msg.bot .msg-bub{background:var(--cream);border:1px solid var(--border);color:var(--ink)}
+  .msg-bub p{margin:0 0 9px} .msg-bub p:last-child{margin-bottom:0}
+  .msg-bub h3{font-size:14.5px;font-weight:800;margin:12px 0 6px} .msg-bub h3:first-child{margin-top:0}
+  .msg-bub h4{font-size:13px;font-weight:800;margin:10px 0 5px}
+  .msg-bub ul,.msg-bub ol{margin:4px 0 9px;padding-left:20px} .msg-bub li{margin-bottom:4px}
+  .msg-bub code{background:var(--cream-deep);padding:1px 5px;border-radius:5px;font-size:12px;font-family:'JetBrains Mono'}
+  .msg-bub blockquote{border-left:3px solid var(--brand);margin:6px 0;padding:2px 0 2px 12px;color:var(--ink-soft);font-style:italic}
+  .msg-bub hr{border:none;border-top:1px solid var(--border);margin:10px 0}
+  .msg-bub a{color:var(--brand);font-weight:700}
+  .blink::after{content:'▍';animation:bl 1s steps(1) infinite;color:var(--brand);margin-left:1px}
+  @keyframes bl{50%{opacity:0}}
+  .st-err{max-width:780px;margin:0 0 16px;background:var(--accent-pale);border:1px solid var(--accent);border-radius:12px;padding:11px 14px;font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+  .st-inputbar{border-top:1px solid var(--border);padding:12px 14px;display:flex;gap:10px;align-items:flex-end;background:var(--paper)}
+  .st-input{flex:1;border:1px solid var(--border);border-radius:14px;padding:11px 14px;font-size:13.5px;font-family:'Nunito';resize:none;max-height:120px;line-height:1.4;outline:none}
+  .st-input:focus{border-color:var(--brand)}
+  .st-send{background:var(--brand);color:#fff;border:none;width:40px;height:40px;border-radius:50%;font-size:17px;cursor:pointer;flex-shrink:0}
+  .st-send:disabled{opacity:.5;cursor:default}
+  /* ===== weekly dashboard modules ===== */
+  .chan-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:20px}
+  .chan-pb{background:var(--paper);border:1px solid var(--border);border-radius:14px;padding:14px 15px}
+  .chan-pb .cc-top{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+  .cc-ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:18px;flex-shrink:0}
+  .cc-plat{font-family:'Grandstander';font-weight:800;font-size:15px;color:var(--brand);line-height:1}
+  .cc-who{font-family:'JetBrains Mono';font-size:8.5px;font-weight:700;letter-spacing:.04em;color:var(--ink-soft);text-transform:uppercase;margin-top:3px}
+  .cc-job{font-size:12px;line-height:1.45;color:var(--ink);margin-bottom:9px}
+  .cc-lead{font-family:'JetBrains Mono';font-size:9px;font-weight:800;letter-spacing:.03em;color:var(--accent-deep);background:var(--accent-pale);padding:4px 9px;border-radius:20px;display:inline-block}
+  .wk-mod{background:var(--paper);border:1px solid var(--border);border-radius:14px;padding:15px 16px}
+  .wk-h{font-family:'Grandstander';font-weight:800;font-size:15px;color:var(--brand);display:flex;align-items:center;gap:8px;margin-bottom:4px}
+  .wk-ct{font-family:'JetBrains Mono';font-size:10px;font-weight:800;color:var(--accent-deep);background:var(--accent-pale);padding:1px 8px;border-radius:20px}
+  .wk-sub{font-size:11.5px;color:var(--ink-soft);line-height:1.45;margin-bottom:12px;font-style:italic;font-family:'Fraunces'}
+  .exp-item,.paid-item{border:1px solid var(--border);border-radius:11px;padding:11px 12px;margin-bottom:9px;cursor:pointer;transition:.12s}
+  .exp-item:hover,.paid-item:hover{border-color:var(--brand);background:var(--brand-light)}
+  .exp-item:last-child,.paid-item:last-child{margin-bottom:0}
+  .exp-item-t{font-weight:800;font-size:12.5px;line-height:1.35;margin-bottom:7px}
+  .exp-item .prod-meta{font-size:11.5px;margin-bottom:5px}
+  .paid-item{display:flex;gap:10px;align-items:flex-start}
+  .paid-ic{font-size:17px;flex-shrink:0;margin-top:1px}
+  .paid-t{font-weight:800;font-size:12.5px;line-height:1.35;margin-bottom:3px}
+  .paid-note{font-size:11.5px;color:var(--ink-soft);line-height:1.45}
+  /* ===== turnkey 'auto-produce' teaser ===== */
+  .produce-teaser{display:flex;gap:12px;align-items:flex-start;background:linear-gradient(120deg,var(--brand-light),var(--accent-pale));border:1px dashed var(--brand-mid);border-radius:12px;padding:13px 15px;margin-top:12px}
+  .produce-teaser .pt-ic{font-size:22px;line-height:1;flex-shrink:0}
+  .produce-teaser b{font-size:13px}
+  .soon-pill{font-family:'JetBrains Mono';font-size:8px;font-weight:800;letter-spacing:.08em;color:var(--brand);background:#fff;border:1px solid var(--brand-mid);padding:2px 7px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .produce-teaser .pt-sub{font-size:11.5px;color:var(--ink-soft);line-height:1.45;margin-top:4px}
   /* panel */
   .panel-react{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:11px 13px;margin-bottom:8px;display:flex;gap:11px;align-items:flex-start}
   .panel-av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:17px;flex-shrink:0;background:var(--brand-light)}
@@ -305,7 +407,7 @@
 <body data-palette="#4A1E9E,#EF5B4C,#1AA0BE,#5BA83C,#E24E96,#F6D93B">
 <div id="root"></div>
 <script type="text/babel" data-presets="react">
-const {useState} = React;
+const {useState,useRef,useEffect} = React;
 const WEEK = "July 14–20, 2026";
 
 const PILLARS = {
@@ -323,10 +425,9 @@ const PERF_MAX = 1600000;
 
 /* ---- Synthetic Parent Panel (named scorers) ---- */
 const PANEL = [
-  {key:"fiona",name:"First-Time Fiona",emoji:"🍼",bio:"4-month-old, first baby. Googles milestones at 2am. Needs reassurance more than another product.",loves:["reassure","milestone","first-time"], pos:"Finally — something that makes me feel like I'm not failing.", neu:"Sweet, but I might scroll past when I'm anxious."},
-  {key:"bree",name:"Budget-Smart Bree",emoji:"💸",bio:"Wants real development without overspending. Allergic to anything that smells like an upsell.",loves:["budget","diy","value"], pos:"Free value AND it respects my wallet? Saved + shared.", neu:"Fine, but where's the part that doesn't cost me?"},
-  {key:"sam",name:"Second-Time Sam",emoji:"⏱️",bio:"Two under three, zero time. Wants quick wins she can pull off one-handed.",loves:["quick","hack","nobaby","convenience"], pos:"Doable in the 5 minutes I actually have. Yes.", neu:"Cute, but who has time to set that up?"},
-  {key:"gail",name:"Gifting Grandma Gail",emoji:"🎁",bio:"Buys for the grandkids. Wants the 'right,' expert-backed thing — and to look thoughtful doing it.",loves:["expert","credible","gift","box"], pos:"An expert says so? That's exactly what I want to give.", neu:"Lovely, though I'd want to know why it matters."},
+  {key:"gail",name:"Gifting Grandma Gail",emoji:"🎁",channel:"Facebook",bio:"Buys for the grandkids on Facebook. Wants the 'right,' expert-backed thing — and to look thoughtful giving it. Trusts credentials + a clear reason it matters. Your Facebook audience.",loves:["expert","credible","gift","milestone","box","reassure"], pos:"An expert says so? That's exactly what I want to give — I'm sharing this with all my friends.", neu:"Lovely, but I'd want to know WHY it matters before I gift it."},
+  {key:"mia",name:"Millennial-Mom Mia",emoji:"💜",channel:"Instagram",bio:"The core subscriber, on Instagram. Aspirational-but-real, milestone-driven, saves everything. Wants development made plain (and a little beautiful) — and to feel capable, never behind. Your Instagram audience.",loves:["milestone","reassure","first-time","quick","value","credible","gift"], pos:"Saved. This is exactly the stage we're in and it made me feel capable, not behind.", neu:"Cute — but if it doesn't teach me something or make me feel seen, I keep scrolling."},
+  {key:"zoe",name:"Gen-Z-Mom Zoe",emoji:"⚡",channel:"TikTok",bio:"Younger mom on TikTok. Trend-native, budget-tight, allergic to anything polished or salesy. Values authenticity, humor, and a genuinely useful hack. Discovers brands on the FYP. Your TikTok audience.",loves:["budget","diy","quick","nobaby","hack","first-time"], pos:"ok this is actually useful AND free?? saving + sending to the group chat.", neu:"feels like an ad. if it's not real or genuinely helpful, i'm gone."},
 ];
 function panelReact(b){
   const tags=b.panelTags||[];
@@ -423,20 +524,145 @@ const AMBASSADORS = [
 ];
 
 const BRIEFS = [
-  {id:"PWP-0714-1", pillar:"PWP", dna:"activity-demo", plat:"IG + TikTok", anchor:true, noBaby:false, panelTags:["budget","milestone","first-time"], concept:"Wake-window activities for a 6–7 month old — the next age band up from your 1.6M hit.", hooks:["the wake-window activities your 6–7 month old actually wants (from a speech therapist)","3 five-minute activities that build core strength + eye-hand coordination (6–7 mo)","your baby's awake — now what? here's the 6–7mo play menu"], rec:0, caption:"Supporting your 6–7 month old's development doesn't have to be expensive 💜 Here are the everyday activities we love for this stage — the same kind of stage-matched play that shows up in the 6-month box. (ALWAYS supervise!)", audioIG:"Trending warm/relatable mom audio", audioTT:"Original audio (activity voiceover)", visual:"Handheld, baby on a playmat, big text overlays per activity, warm daylight. End card: '↳ this is the play in the 6-month box.'", scenes:["Hook text over baby reaching for a toy","3 quick activity demos, one per overlay","End card: 'this is the 6-month box'"], ladder:true, drove:["1.6M wake-window proof","age-gated search behavior"], why:"Rides your single most-proven format one age band up — the start of a recurring age-ladder franchise."},
-  {id:"PWP-0714-2", pillar:"PWP", dna:"activity-demo", plat:"TikTok", anchor:false, noBaby:false, panelTags:["budget","diy","quick"], concept:"Taste-safe ice + water summer sensory play (parent-hands lead, baby optional).", hooks:["taste-safe sensory play for hot days (baby-approved, mess-contained)","frozen fruit + a bowl of water = 20 minutes of summer sensory play","the $0 summer sensory setup every 6mo+ loves"], rec:1, caption:"real summer with a baby ☀️ taste-safe ice play = cool hands, big sensory wins, and a few minutes of peace for you. (ALWAYS supervise around water!)", audioTT:"#hotmomsummer trending audio", visual:"Outdoors/kitchen, close-up on hands + ice + water, satisfying texture shots. No face required.", scenes:["Close-up: frozen fruit dropped into water","Baby (or hands) exploring the ice","Text: 'cool hands, calm afternoon'"], ladder:false, drove:["#hotmomsummer","DIY sensory trend"], why:"Seasonal + baby-light. Rides summer sensory + DIY without needing a performing baby."},
-  {id:"PWP-0714-3", pillar:"PWP", dna:"no-baby-explainer", plat:"IG carousel", anchor:false, noBaby:true, panelTags:["budget","diy","nobaby","quick"], concept:"5 no-toy activities using things already in your kitchen.", hooks:["5 baby activities using stuff in your kitchen (zero toys, zero dollars)","development doesn't have to be expensive — save this for a rainy day","the 5 'toys' hiding in your kitchen cabinet"], rec:0, caption:"development doesn't have to be expensive 💜 save this one. 5 activities, 0 toys, all stuff you already own. (and when you're ready for stage-matched toys picked for you — you know where we are.)", visual:"Carousel: 1 cover + 5 activity cards, clean graphic layout, brand purple + yellow. Zero baby on set.", scenes:["Cover: '5 kitchen activities'","5 graphic cards, one activity each","CTA card: 'want it done for you?'"], ladder:true, drove:["budget-smart parenting mood","DIY sensory trend"], why:"A pure no-baby format on their proven budget hook. Posts on a schedule; breaks the casting bottleneck."},
-  {id:"PWP-0714-4", pillar:"PWP", dna:"milestone-explainer", plat:"IG + TikTok", anchor:false, noBaby:true, panelTags:["milestone","reassure","nobaby"], concept:"The 'in & out' game — why 9-month-olds obsessively put things in and take them out.", hooks:["why your 9mo won't stop putting things IN and taking them OUT","this 'annoying' phase is actually a huge brain milestone","the container obsession, explained (+ the toy that turns it into learning)"], rec:2, caption:"if your baby is emptying every drawer in the house — congrats, that's object permanence developing 🧠 here's how to lean into it (and the toy in the 9-month box built for exactly this).", audioIG:"Original audio (explainer VO)", audioTT:"Original audio (explainer VO)", visual:"Product/toy B-roll + text overlays explaining the milestone. Shoot with zero baby — hands + toys only.", scenes:["Text: 'why the container obsession?'","Hands demoing in/out with a container toy","End: 'the 9-month box is built for this'"], ladder:true, drove:["age-gated search","open-ended play research"], why:"Turns a relatable 'annoying' phase into reassurance + a box ladder. Baby-independent, milestone-anchored."},
-  {id:"MAP-0714-1", pillar:"MAP", dna:"expert-take", plat:"IG + TikTok", anchor:true, noBaby:true, panelTags:["expert","credible","milestone","gift"], concept:"'What's actually happening in your baby's brain at 6 months' — pilot of the named-expert Milestone Map series.", hooks:["a pediatric OT explains what's happening at 6 months (and what to hand them)","6 months: the 3 kinds of play their brain is craving right now","stop guessing what your 6mo needs — here's the developmental map"], rec:0, caption:"new series 🗺️ we asked a pediatric OT to break down what's really going on at each stage — starting with 6 months. simple, no jargon, and exactly what to do about it. (it's also how we pick what goes in each box.)", audioIG:"Original audio (expert to camera)", audioTT:"Original audio (expert to camera)", visual:"Named credentialed expert to camera, warm setting, lower-third with credential. Text overlays for the 3 play types. ZERO baby required.", scenes:["Expert intro + credential lower-third","3 play types, one overlay each","End: 'this is how the box gets built'"], ladder:true, drove:["Monti Kids empty lane","Lovevery expert moat","creator economy supply"], why:"The owned-authority pilot. Builds a recurring face + makes the box's curation logic visible. Highest-leverage green shoot."},
-  {id:"MAP-0714-2", pillar:"MAP", dna:"expert-take", plat:"IG + TikTok", anchor:false, noBaby:true, panelTags:["reassure","expert","first-time","nobaby"], concept:"'Is my baby behind?' — an expert reframes the #1 first-time-parent anxiety.", hooks:["'is my baby behind?' — why that's the wrong question","a therapist's take on milestone anxiety (watch before you google again)","ranges, not deadlines: what milestones actually mean"], rec:1, caption:"if you've spiraled over a milestone chart at 2am, this one's for you 💜 development is a range, not a race. save this, breathe, and remember: you're already doing the thing by caring this much.", audioIG:"Original audio (expert to camera)", audioTT:"Original audio (expert to camera)", visual:"Expert to camera, calm/warm. Reassurance-led. ZERO baby required.", scenes:["Hook: 'is my baby behind?'","Expert reframe: ranges not deadlines","End: 'you're already doing the thing'"], ladder:false, drove:["milestone-anxiety volume","gentle-parenting reframe"], why:"Reassurance, never shame — the #1 voice guardrail as content. High-volume anxiety, soothed by the owned expert."},
-  {id:"MAP-0714-3", pillar:"MAP", dna:"no-baby-explainer", plat:"IG carousel + TikTok", anchor:true, noBaby:true, panelTags:["milestone","expert","nobaby","credible"], concept:"'Which toy for which milestone: 0–12 months' — the personalization made visible.", hooks:["which toy for which milestone (0–12 months) — save this","the exact play your baby needs at every stage, on one chart","this is how we decide what goes in your box"], rec:0, caption:"the whole first year of play, mapped 🗺️ screenshot this. every stage has a job — and the right toy makes that job click. (this map is literally how the box gets built for your baby's age.)", visual:"Carousel/graphic: an age→milestone→play-type→toy map. Brand-designed, screenshot-able. Pure graphic, zero baby.", scenes:["Cover: 'first year of play, mapped'","Age bands 0–3 / 4–6 / 7–9 / 10–12","CTA: 'the box builds this for you'"], ladder:true, drove:["age-gated search","invisible-personalization gap"], why:"Directly fixes the 'customers never mention personalization' gap — shows the age-stage logic instead of claiming it. High-save, baby-independent."},
-  {id:"MAP-0714-4", pillar:"MAP", dna:"milestone-explainer", plat:"IG + TikTok", anchor:true, noBaby:true, panelTags:["budget","expert","credible","nobaby"], concept:"'Why fewer toys = more play' — the science that makes a rotation subscription undeniable.", hooks:["the science: kids with 4 toys play longer than kids with 16","why your playroom is the problem (and what to do instead)","more toys = shorter attention span. here's the study."], rec:2, caption:"turns out the secret to better play isn't more toys — it's fewer, rotated 🔁 (University of Toledo backs this up). curate a few, swap them monthly, watch focus go up. it's the whole idea behind the box.", audioIG:"Original audio (explainer VO)", audioTT:"Original audio (explainer VO)", visual:"Split-screen: cluttered playroom vs. curated few. Stat overlays + citation. Product B-roll. Zero baby required.", scenes:["Split: cluttered vs. curated playroom","Stat overlay: '4 toys > 16 toys' + citation","End: 'that's the whole idea behind the box'"], ladder:true, drove:["Univ. of Toledo study","toy-overwhelm trend","subscription retention frame"], why:"The category wedge as content — the 'why a box beats a haul' argument, with a citation. Anchors the week and sells the model without a sales pitch."},
-  {id:"YGT-0714-1", pillar:"YGT", dna:"parent-hack", plat:"IG + TikTok", anchor:false, noBaby:false, panelTags:["quick","hack","reassure"], concept:"The 5pm 'witching hour' survival kit.", hooks:["your 5pm witching-hour survival kit (save this before tonight)","the fussy-hour reset that actually works","6 things that get us through the witching hour"], rec:0, caption:"5pm hits different with a baby 🫠 here's the survival kit — a few sensory resets, a change of scene, and grace for yourself. what gets YOU through the witching hour? 👇", audioIG:"'Me as a mom' relatable audio", audioTT:"'Me as a mom' relatable audio", visual:"Quick-cut list format, relatable + a little funny. Baby optional (parent + product works).", scenes:["Relatable hook: '5pm again'","Quick-cut survival kit list","Ask: 'what gets you through?'"], ladder:false, drove:["'me as a mom' audio","mental-load relief"], why:"Mental-load relief + high comment-driver (like the 6.6K velcro-swaddle hit). Village-solidarity in the brand voice."},
-  {id:"YGT-0714-2", pillar:"YGT", dna:"parent-hack", plat:"TikTok", anchor:false, noBaby:true, panelTags:["reassure","first-time","nobaby"], concept:"'Things nobody tells you about month 4' — confessional, parent-only voiceover.", hooks:["things nobody told me about month 4","the 4-month regression is real and here's what helped","month 4: a survival guide nobody handed you"], rec:1, caption:"month 4 is a whole thing 💜 the sleep regression, the distractible feeds, the leaps. you're not doing it wrong — it's just month 4. sending solidarity to everyone in it right now.", audioTT:"Trending confessional/relatable audio", visual:"Parent talking-to-camera OR text-over-broll voiceover — no baby needed. Warm, honest, solidarity-led.", scenes:["Hook: 'nobody told me about month 4'","3 honest truths, text overlays","End: 'you're not doing it wrong'"], ladder:false, drove:["first-time-parent reassurance","confessional format"], why:"Baby-independent + deeply relatable. Reassurance tone; builds the 'we hold your hand' trust that drives retention."},
-  {id:"YGT-0714-3", pillar:"YGT", dna:"unbox-with-payoff", plat:"IG + TikTok", anchor:false, noBaby:false, panelTags:["gift","reassure"], concept:"'The part of the box that's just for YOU, mom' — the products-for-mom delight.", hooks:["every box has something just for mom — here's this month's","the baby box that remembers the mom too","POV: you open a baby box and there's a treat for YOU"], rec:0, caption:"nobody's there to hold your hand through parenthood — but we sure will 💜 every box tucks in a little something for mom, because you're in this stage too. small, but it hits.", audioIG:"Warm/uplifting trending audio", audioTT:"Original audio", visual:"Unboxing focused on the mom gift + one baby item, cozy. The emotional 'we see you' beat.", scenes:["Open box, find the mom treat","Reaction + the baby item beside it","Text: 'we hold your hand too'"], ladder:true, drove:["products-for-mom differentiator","we-hold-your-hand promise"], why:"Turns a real product differentiator into the brand's emotional core. An unbox that earns its views on feeling, not filler."},
-  {id:"BOJ-0714-1", pillar:"BOJ", dna:"unbox-with-payoff", plat:"IG + TikTok", anchor:false, noBaby:false, panelTags:["gift","expert","credible","milestone"], concept:"Unbox the 6-month box — and the developmental WHY behind every single item.", hooks:["unboxing the 6-month box — and why each toy made it in","not just an unboxing: the reason behind every item","6-month box, decoded: what each toy is secretly building"], rec:1, caption:"an unboxing, but make it make sense 📦 every item in the 6-month box has a developmental job — here's what each one is quietly building. this is what 'stage-matched' actually looks like.", audioIG:"Satisfying/warm trending audio", audioTT:"Original audio (decode VO)", visual:"Unboxing where each item gets a text-overlay 'why' (the milestone it supports). Fixes the bare-unbox death.", scenes:["Open the 6-month box","Each item + its developmental 'why'","End: 'that's stage-matched'"], ladder:true, drove:["120-view unbox problem","invisible-personalization gap"], why:"Reframes the format that dies at 120 views — every item earns its place with a developmental reason. Proves personalization on camera."},
-  {id:"BOJ-0714-2", pillar:"BOJ", dna:"ugc-testimonial", plat:"TikTok + IG", anchor:false, noBaby:false, panelTags:["credible","gift"], concept:"'POV: the box knew exactly what stage we were in' — repurposed customer reaction.", hooks:["POV: the box knew what stage we were in before I did","the 'how did they know' unboxing reaction","real mom, real 8-month-old, real reaction"], rec:0, caption:"when the box just… gets your baby's stage 🥹 (repost from a real subscriber). this is the personalization we're always talking about — you just have to feel it.", audioTT:"Trending reaction audio", visual:"Perpetual-rights UGC from a real subscriber; light brand text framing. The KiwiCo machine, started small.", scenes:["Real subscriber opens the box","Genuine 'how did they know' reaction","Brand text: 'that's the personalization'"], ladder:true, drove:["KiwiCo UGC model","personalization-felt gap"], why:"Kicks off the perpetual-rights UGC engine + lets a customer prove the personalization the brand keeps claiming."},
-  {id:"BOJ-0714-3", pillar:"BOJ", dna:"seasonal-drop", plat:"IG + TikTok", anchor:false, noBaby:true, panelTags:["reassure","gift","nobaby"], concept:"'Back-to-daycare transition toys' — front-loading the Aug daycare window.", hooks:["starting daycare soon? these are the transition toys that help","the comfort-object strategy for daycare drop-offs","how to ease the daycare transition (from a stage-matched box)"], rec:1, caption:"daycare season is coming 💜 separation anxiety peaks 6–18 months, and the right comfort object + familiar play can make drop-offs a little softer. saving this for every parent gearing up for the transition.", audioIG:"Warm/emotional trending audio", audioTT:"Original audio (tips VO)", visual:"Product + tips B-roll, gentle tone. Shoot with zero baby. Timed to land mid-August.", scenes:["Hook: 'daycare season is coming'","3 transition-toy tips","End: gentle 'you've got this'"], ladder:true, drove:["Aug daycare cluster","separation-anxiety pulse"], why:"Times the year's densest owned-moment cluster. Baby-independent, emotionally resonant, ladders to the box."},
+  {id:"PWP-0714-1", pillar:"PWP", dna:"activity-demo", plat:"IG + TikTok", anchor:true, noBaby:false, ladder:true, panelTags:["budget","milestone","first-time"], concept:"Wake-window activities for a 6–7 month old — the next age band up from your 1.6M hit.", hooks:["the wake-window activities your 6–7 month old actually wants (from a speech therapist)","3 five-minute activities that build core strength + eye-hand coordination (6–7 mo)","your baby's awake — now what? here's the 6–7mo play menu"], rec:0, caption:"Supporting your 6–7 month old's development doesn't have to be expensive 💜 Here are the everyday activities we love for this stage — the same stage-matched play that shows up in the 6-month box. (ALWAYS supervise!)",
+    lead:{ch:"Instagram",who:"millennial mom · the core subscriber"},
+    shoot:{setup:"Baby on a playmat, warm window light, 3 simple props in reach. Phone on a low tripod or propped at baby's level.", cast:"Baby + parent hands (no face needed)", tips:"Shoot each activity as its own 5–8s clean take so you can reorder in the edit; grab 10s of extra reach-and-grab B-roll."},
+    shots:[{sec:"0–2s",type:"POV / low angle",frame:"Baby reaching for a toy, hook text over top",action:"Start mid-reach — motion in the first frame",txt:"your 6–7mo is awake… now what?"},{sec:"2–12s",type:"overhead + close-up",frame:"3 quick activity demos, one per beat",action:"Parent hands guide each activity; text overlay names the skill it builds",txt:"1) core 2) eye-hand 3) cause + effect"},{sec:"12–15s",type:"close-up",frame:"Baby delighted with the last activity",action:"End on the win, then the box card",txt:"↳ this is the play in the 6-month box"}],
+    edit:{hook:"Open ON the reach — no intro card. Hook text in the first 1s.", pace:"Snappy: one activity per ~3s, hard cuts.", captions:"Burned-in, brand purple, the skill word highlighted in yellow.", audio:"Trending warm/relatable mom audio (IG) · original activity VO (TikTok).", overlays:"Skill label per activity + a final 'in the 6-month box' end card.", length:"15–20s", aspect:"9:16 (+ a 3-slide carousel cut for IG saves)"},
+    channels:[{k:"fb",who:"grandma · gift-buyer",cut:"Reframe as 'want to help but not sure what to DO? here's what actually helps a 6-month-old' + gift-sub link. Slower, warmer, longer caption."},{k:"ig",who:"millennial mom · core",cut:"The Reel + a saveable carousel ('save this 6–7mo play menu'). This is the lead cut."},{k:"tt",who:"Gen Z mom · discovery",cut:"Faster, rawer, hook-forward with trend audio; drop the polish. 'nobody tells you what to DO when they're awake.'"}],
+    test:null,
+    amplify:"Proven format — if it clears 2× your activity-post baseline in 48h, boost the IG carousel to millennial-mom lookalikes ($75) and retarget savers with the 6-month-box.",
+    drove:["1.6M wake-window proof","age-gated search behavior"], why:"Rides your single most-proven format one age band up — the start of a recurring age-ladder franchise."},
+
+  {id:"PWP-0714-2", pillar:"PWP", dna:"activity-demo", plat:"TikTok", anchor:false, noBaby:false, ladder:false, panelTags:["budget","diy","quick"], concept:"Taste-safe ice + water summer sensory play (parent-hands lead, baby optional).", hooks:["taste-safe sensory play for hot days (baby-approved, mess-contained)","frozen fruit + a bowl of water = 20 minutes of summer sensory play","the $0 summer sensory setup every 6mo+ loves"], rec:1, caption:"real summer with a baby ☀️ taste-safe ice play = cool hands, big sensory wins, and a few minutes of peace for you. (ALWAYS supervise around water!)",
+    lead:{ch:"TikTok",who:"Gen Z mom · discovery"},
+    shoot:{setup:"Kitchen counter or outdoors, bright daylight, a bowl, water, frozen fruit. Phone propped overhead + one side angle.", cast:"Parent hands (baby optional)", tips:"The satisfying texture shots ARE the content — get super close on the ice hitting the water; shoot the drop 3×."},
+    shots:[{sec:"0–2s",type:"extreme close-up",frame:"Frozen fruit dropping into water, slow-mo",action:"Satisfying splash, hook text",txt:"$0 summer sensory 🧊"},{sec:"2–10s",type:"overhead",frame:"Hands (or baby) exploring the ice + water",action:"Show the exploration + the calm",txt:"cool hands, big sensory wins"},{sec:"10–14s",type:"side",frame:"The setup, mess contained on a tray",action:"End on the 'few minutes of peace' beat",txt:"…and 20 min of quiet for you"}],
+    edit:{hook:"Open on the slow-mo ice drop — pure satisfying, no talking.", pace:"Relaxed/satisfying, let textures breathe.", captions:"Minimal, clean; one line per beat.", audio:"#hotmomsummer trending audio.", overlays:"Setup ingredients as a quick text list at the end.", length:"12–15s", aspect:"9:16"},
+    channels:[{k:"fb",who:"grandma · gift-buyer",cut:"'Fun to do with the grandkids on a hot afternoon' — carousel of stills + steps. Activity-share, not a product push."},{k:"ig",who:"millennial mom · core",cut:"Reel + a 'save for a hot day' carousel; lean the aesthetic."},{k:"tt",who:"Gen Z mom · discovery",cut:"Lead cut — raw, satisfying, trend sound. 'things to do with a bored baby in a heatwave.'"}],
+    test:{hyp:"A pure baby-optional sensory format can pull reach without a performing baby on camera.",metric:">1.5× your usual TikTok reach + saves in 72h"},
+    amplify:"Experiment — keep it organic first. If it over-indexes, spark-code it and test $50 to Gen-Z parents 25–34 on TikTok.",
+    drove:["#hotmomsummer","DIY sensory trend"], why:"Seasonal + baby-light. Rides summer sensory + DIY without needing a performing baby."},
+
+  {id:"PWP-0714-3", pillar:"PWP", dna:"no-baby-explainer", plat:"IG carousel", anchor:false, noBaby:true, ladder:true, panelTags:["budget","diy","nobaby","quick"], concept:"5 no-toy activities using things already in your kitchen.", hooks:["5 baby activities using stuff in your kitchen (zero toys, zero dollars)","development doesn't have to be expensive — save this for a rainy day","the 5 'toys' hiding in your kitchen cabinet"], rec:0, caption:"development doesn't have to be expensive 💜 save this one. 5 activities, 0 toys, all stuff you already own. (and when you're ready for stage-matched toys picked for you — you know where we are.)",
+    lead:{ch:"Instagram",who:"millennial mom · core (high-save carousel)"},
+    shoot:{setup:"NO SHOOT NEEDED — design in Canva. Brand purple + yellow, one activity per card, big friendly type. Optional: 5 quick 2s B-roll clips of each kitchen item if you want a video cut.", cast:"None — pure graphic", tips:"Make card 1 (the cover) do 90% of the work — it's what gets the save. Number the cards so people swipe to the end."},
+    shots:[{sec:"slide 1",type:"cover card",frame:"Bold cover: '5 kitchen activities, 0 toys'",action:"The scroll-stopper + save prompt",txt:"5 'toys' hiding in your kitchen 🥄"},{sec:"slides 2–6",type:"activity cards",frame:"One activity each: item + what it builds",action:"Clean graphic, one idea per card",txt:"[activity + skill per card]"},{sec:"slide 7",type:"CTA card",frame:"Soft bridge to the box",action:"The ladder, gently",txt:"want it done for you? ↳ the age-right box"}],
+    edit:{hook:"The cover card IS the hook — punchy, benefit-first.", pace:"n/a (carousel) — or 1.5s/card if cut to a video.", captions:"On-card text only.", audio:"n/a (carousel) · calm trending audio if reformatted to a Reel.", overlays:"Consistent card template, page numbers.", length:"7 cards", aspect:"4:5 carousel (+ 9:16 video reformat option)"},
+    channels:[{k:"fb",who:"grandma · gift-buyer",cut:"Perfect FB share — 'no toys needed' plays to the practical grandparent. Long warm caption, link to gift the box for 'when they're ready.'"},{k:"ig",who:"millennial mom · core",cut:"Lead cut — the save-magnet carousel. Pin it to the grid."},{k:"tt",who:"Gen Z mom · discovery",cut:"Reformat as a fast 'photo mode' slideshow with trend audio — 'POV: broke but want a smart baby.'"}],
+    test:null,
+    amplify:"Proven save-driver format. If saves spike, boost on FB to parents + grandparents of 0–2s ($50) — high-save creative is cheap to amplify.",
+    drove:["budget-smart parenting mood","DIY sensory trend"], why:"A pure no-baby format on their proven budget hook. Posts on a schedule; breaks the casting bottleneck."},
+
+  {id:"PWP-0714-4", pillar:"PWP", dna:"milestone-explainer", plat:"IG + TikTok", anchor:false, noBaby:true, ladder:true, panelTags:["milestone","reassure","nobaby"], concept:"The 'in & out' game — why 9-month-olds obsessively put things in and take them out.", hooks:["why your 9mo won't stop putting things IN and taking them OUT","this 'annoying' phase is actually a huge brain milestone","the container obsession, explained (+ the toy that turns it into learning)"], rec:2, caption:"if your baby is emptying every drawer in the house — congrats, that's object permanence developing 🧠 here's how to lean into it (and the toy in the 9-month box built for exactly this).",
+    lead:{ch:"Instagram",who:"millennial mom · core + reassurance-seekers"},
+    shoot:{setup:"Tabletop, a container + a few safe objects, clean surface, soft light. Hands only — no baby needed.", cast:"Hands + toys only (zero baby)", tips:"Demo the in/out yourself so it's crisp; the 'why it matters' text does the teaching — keep the visual simple."},
+    shots:[{sec:"0–2s",type:"close-up",frame:"Hand dumps a container of objects out",action:"The relatable 'chaos' moment + hook",txt:"why won't they stop emptying everything?!"},{sec:"2–10s",type:"overhead",frame:"Hands demo in → out with a container toy",action:"Explain object permanence in plain words via overlay",txt:"it's object permanence developing 🧠"},{sec:"10–14s",type:"close-up",frame:"The container toy, tidy",action:"Bridge to the 9-month box",txt:"the 9-month box is built for this"}],
+    edit:{hook:"Lead with the 'annoying' relatable moment, THEN reframe to milestone.", pace:"Calm-explainer; let the reframe land ~2s.", captions:"Plain mom-to-mom language, no jargon uncushioned.", audio:"Original explainer VO (both platforms — highest-intent lane).", overlays:"The milestone name + 'what to do about it' + box end card.", length:"14–18s", aspect:"9:16"},
+    channels:[{k:"fb",who:"grandma · gift-buyer",cut:"'Is your grandbaby emptying every drawer? here's why (it's good news)' — reassurance grandparents love to share. Gift-sub link."},{k:"ig",who:"millennial mom · core",cut:"Lead cut — the reassurance reframe + box ladder. Also cut a carousel version for saves."},{k:"tt",who:"Gen Z mom · discovery",cut:"Hook harder on the chaos: 'my 9mo is a tiny menace and apparently that's… development?' Trend audio, faster."}],
+    test:null,
+    amplify:"Proven reassurance+ladder format. Retarget the savers with a 9-month-box creative; whitelist the top comment reply as a follow-up.",
+    drove:["age-gated search","open-ended play research"], why:"Turns a relatable 'annoying' phase into reassurance + a box ladder. Baby-independent, milestone-anchored."},
+
+  {id:"MAP-0714-1", pillar:"MAP", dna:"expert-take", plat:"IG + TikTok", anchor:true, noBaby:true, ladder:true, panelTags:["expert","credible","milestone","gift"], concept:"'What's actually happening in your baby's brain at 6 months' — pilot of the named-expert Milestone Map series.", hooks:["a pediatric OT explains what's happening at 6 months (and what to hand them)","6 months: the 3 kinds of play their brain is craving right now","stop guessing what your 6mo needs — here's the developmental map"], rec:0, caption:"new series 🗺️ we asked a pediatric OT to break down what's really going on at each stage — starting with 6 months. simple, no jargon, and exactly what to do about it. (it's also how we pick what goes in each box.)",
+    lead:{ch:"Instagram",who:"millennial mom · core + gifting grandparents"},
+    shoot:{setup:"Named credentialed expert to camera, warm home/office setting, soft key light, lav mic if possible. Lower-third graphic with name + credential.", cast:"The expert (adult to camera) — ZERO baby needed", tips:"Record a 45–60s master, then cut to :20 + :15. Batch 4–6 stages in one session so the series is banked. Get the credential on-screen early — it's the whole point."},
+    shots:[{sec:"0–3s",type:"talking-head",frame:"Expert intro + credential lower-third",action:"'I'm a pediatric OT — here's what's happening at 6 months'",txt:"[Name], Pediatric OT · Milestone Map"},{sec:"3–15s",type:"talking-head + B-roll",frame:"3 play types, one overlay each, toy B-roll cutaways",action:"Each play type = one plain-language 'what to hand them'",txt:"1) reaching 2) mouthing 3) cause+effect"},{sec:"15–20s",type:"talking-head",frame:"Expert close + box bridge",action:"'this is how we pick what goes in each box'",txt:"↳ this is how the box gets built"}],
+    edit:{hook:"Credential + 'what's happening at 6 months' in the first 3s — authority upfront.", pace:"Warm, unhurried; this is trust content, not a trend.", captions:"Full burned-in captions (accessibility + silent scroll).", audio:"Original audio (expert to camera) — both platforms.", overlays:"Play-type labels + credential lower-third + box end card.", length:":20 (IG) · :15 (TikTok) from one :60 master", aspect:"9:16"},
+    channels:[{k:"fb",who:"grandma · gift-buyer",cut:"HUGE on FB — 'a pediatric OT explains what your 6-month grandbaby needs.' Expert credibility is exactly what Gifting Grandma shares. Gift-sub CTA."},{k:"ig",who:"millennial mom · core",cut:"Lead cut — the owned-authority pilot. Save + follow-for-the-series CTA; pin as a Highlight ('Milestone Map')."},{k:"tt",who:"Gen Z mom · discovery",cut:"Hook on the anxiety: 'stop guessing what your baby needs — an OT breaks it down.' Faster, credential still on-screen."}],
+    test:{hyp:"An owned, named-expert series builds a recurring face + follower intent that borrowed 'a speech therapist' credits never compound into.",metric:"Follow-rate + 'part 2?' comments; >2× your saves baseline. Green-light the series at 3 stages if it hits."},
+    amplify:"Green-shoot anchor — worth paid support. Boost the FB cut to grandparents 55+ ($100) and whitelist the IG version to broad parent lookalikes. Authority creative ages well, so amplify beyond 48h.",
+    drove:["Monti Kids empty lane","Lovevery expert moat","creator economy supply"], why:"The owned-authority pilot. Builds a recurring face + makes the box's curation logic visible. Highest-leverage green shoot."},
+
+  {id:"MAP-0714-2", pillar:"MAP", dna:"expert-take", plat:"IG + TikTok", anchor:false, noBaby:true, ladder:false, panelTags:["reassure","expert","first-time","nobaby"], concept:"'Is my baby behind?' — an expert reframes the #1 first-time-parent anxiety.", hooks:["'is my baby behind?' — why that's the wrong question","a therapist's take on milestone anxiety (watch before you google again)","ranges, not deadlines: what milestones actually mean"], rec:1, caption:"if you've spiraled over a milestone chart at 2am, this one's for you 💜 development is a range, not a race. save this, breathe, and remember: you're already doing the thing by caring this much.",
+    lead:{ch:"Instagram",who:"millennial mom · first-time / anxious core"},
+    shoot:{setup:"Expert to camera, calm warm setting, soft light. Same expert as MAP-1 to build the recurring face.", cast:"The expert (adult to camera) — ZERO baby needed", tips:"Keep it slow and eye-contact-y — this is the reassurance beat. No stat overwhelm; one calming idea, said kindly."},
+    shots:[{sec:"0–3s",type:"talking-head",frame:"Expert, direct to camera",action:"'is my baby behind? that's the wrong question.'",txt:"'is my baby behind?'"},{sec:"3–14s",type:"talking-head",frame:"The reframe: ranges, not deadlines",action:"Plain, warm explanation + one thing to do",txt:"development is a range, not a race"},{sec:"14–18s",type:"talking-head",frame:"The reassurance close",action:"'you're already doing the thing by caring'",txt:"breathe. you're doing great. 💜"}],
+    edit:{hook:"The exact 2am search phrase as the hook — meet them where they spiral.", pace:"Slow, warm, reassuring — the opposite of trend pacing.", captions:"Gentle, full captions.", audio:"Original audio (expert) — soft/warm bed optional.", overlays:"Minimal — let the expert carry it.", length:":18", aspect:"9:16"},
+    channels:[{k:"fb",who:"grandma · gift-buyer",cut:"'For any new parent spiraling over milestones' — the kind of reassurance grandparents send to their kids. No hard CTA."},{k:"ig",who:"millennial mom · core",cut:"Lead cut — save + share to a friend. This is pure trust-building."},{k:"tt",who:"Gen Z mom · discovery",cut:"'watch this before you google 'is my baby behind' again' — same warmth, hookier open."}],
+    test:null,
+    amplify:"Proven trust content — don't hard-sell it. Light boost only if it's driving follows; its job is affinity, not conversion.",
+    drove:["milestone-anxiety volume","gentle-parenting reframe"], why:"Reassurance, never shame — the #1 voice guardrail as content. High-volume anxiety, soothed by the owned expert."},
+
+  {id:"MAP-0714-3", pillar:"MAP", dna:"no-baby-explainer", plat:"IG carousel + TikTok", anchor:true, noBaby:true, ladder:true, panelTags:["milestone","expert","nobaby","credible"], concept:"'Which toy for which milestone: 0–12 months' — the personalization made visible.", hooks:["which toy for which milestone (0–12 months) — save this","the exact play your baby needs at every stage, on one chart","this is how we decide what goes in your box"], rec:0, caption:"the whole first year of play, mapped 🗺️ screenshot this. every stage has a job — and the right toy makes that job click. (this map is literally how the box gets built for your baby's age.)",
+    lead:{ch:"Instagram",who:"millennial mom · core (the ultimate save/share asset)"},
+    shoot:{setup:"NO SHOOT — design the age→milestone→play→toy map in Canva/Figma. Brand-designed, screenshot-able, one clean master graphic + a carousel breakdown.", cast:"None — pure graphic", tips:"This is THE personalization-made-visible asset — invest in the design. Make it screenshot-able as one image AND swipeable as a carousel."},
+    shots:[{sec:"slide 1",type:"cover / master map",frame:"'The first year of play, mapped'",action:"The screenshot magnet",txt:"first year of play, mapped 🗺️"},{sec:"slides 2–5",type:"age-band cards",frame:"0–3 / 4–6 / 7–9 / 10–12, each with milestone + play + toy",action:"One band per card, the logic made explicit",txt:"[band → milestone → play → toy]"},{sec:"slide 6",type:"CTA card",frame:"The ladder",action:"'the box builds this for your baby's exact age'",txt:"↳ the box builds this for you"}],
+    edit:{hook:"The master map as slide 1 — instantly useful, instantly saveable.", pace:"n/a (carousel).", captions:"On-card.", audio:"n/a · calm trend audio if reformatted to TikTok photo-mode.", overlays:"Consistent map design language.", length:"6 cards", aspect:"4:5 carousel (+ TikTok photo-mode cut)"},
+    channels:[{k:"fb",who:"grandma · gift-buyer",cut:"'Not sure what toy for what age? this map answers it' — grandparents screenshot + gift accordingly. Gift-sub CTA."},{k:"ig",who:"millennial mom · core",cut:"Lead cut — pin it, put it in Highlights, it's evergreen. The 'show don't claim personalization' hero."},{k:"tt",who:"Gen Z mom · discovery",cut:"Photo-mode slideshow, trend audio: 'saving you a google — every toy for every stage.'"}],
+    test:null,
+    amplify:"Proven evergreen save-driver + it directly fixes the invisible-personalization gap. Retarget savers with 'get the box that builds this for your baby's age.' Boost broadly on IG — high-save creative is efficient.",
+    drove:["age-gated search","invisible-personalization gap"], why:"Directly fixes the 'customers never mention personalization' gap — shows the age-stage logic instead of claiming it. High-save, baby-independent."},
+
+  {id:"MAP-0714-4", pillar:"MAP", dna:"milestone-explainer", plat:"IG + TikTok", anchor:true, noBaby:true, ladder:true, panelTags:["budget","expert","credible","nobaby"], concept:"'Why fewer toys = more play' — the science that makes a rotation subscription undeniable.", hooks:["the science: kids with 4 toys play longer than kids with 16","why your playroom is the problem (and what to do instead)","more toys = shorter attention span. here's the study."], rec:2, caption:"turns out the secret to better play isn't more toys — it's fewer, rotated 🔁 (University of Toledo backs this up). curate a few, swap them monthly, watch focus go up. it's the whole idea behind the box.",
+    lead:{ch:"Instagram",who:"millennial mom · core + budget-minded"},
+    shoot:{setup:"Split-screen setup: one cluttered toy pile vs one curated tray of ~4 toys. Overhead + straight-on. Hands only, no baby.", cast:"Hands + toys only (zero baby)", tips:"The visual contrast (chaos vs calm) does the persuading — make the two setups look dramatically different. Cite the study on-screen for credibility."},
+    shots:[{sec:"0–3s",type:"split-screen overhead",frame:"Cluttered playroom vs curated few",action:"The stark before/after; hook stat",txt:"4 toys > 16 toys (for play quality)"},{sec:"3–13s",type:"overhead",frame:"Show the curated few in use; stat overlay + citation",action:"Explain rotation in plain words",txt:"fewer, rotated = longer focus 🔁"},{sec:"13–17s",type:"straight-on",frame:"The curated tray, calm",action:"Bridge: 'that's the whole idea behind the box'",txt:"↳ curate + rotate = the box"}],
+    edit:{hook:"The counterintuitive stat first — '4 toys beat 16.' It stops the scroll.", pace:"Explainer pace; let the stat + citation register.", captions:"Include the citation on-screen (trust).", audio:"Original explainer VO — both platforms.", overlays:"Stat + University of Toledo citation + box end card.", length:"15–18s", aspect:"9:16"},
+    channels:[{k:"fb",who:"grandma · gift-buyer",cut:"'Science says fewer toys = better play — so a curated box beats a pile' — the gift rationale grandparents want. Gift-sub CTA."},{k:"ig",who:"millennial mom · core",cut:"Lead cut — the 'why a box beats a haul' argument, evidence-backed. Also a carousel for saves."},{k:"tt",who:"Gen Z mom · discovery",cut:"'your playroom is the problem 💀' — hookier, faster, same study on-screen."}],
+    test:null,
+    amplify:"Proven category-wedge content that sells the model without a pitch. Strong retargeting creative for warm audiences ('you saw why fewer toys win — here's the box'). Boost on IG + FB.",
+    drove:["Univ. of Toledo study","toy-overwhelm trend","subscription retention frame"], why:"The category wedge as content — the 'why a box beats a haul' argument, with a citation. Anchors the week and sells the model without a sales pitch."},
+
+  {id:"YGT-0714-1", pillar:"YGT", dna:"parent-hack", plat:"IG + TikTok", anchor:false, noBaby:false, ladder:false, panelTags:["quick","hack","reassure"], concept:"The 5pm 'witching hour' survival kit.", hooks:["your 5pm witching-hour survival kit (save this before tonight)","the fussy-hour reset that actually works","6 things that get us through the witching hour"], rec:0, caption:"5pm hits different with a baby 🫠 here's the survival kit — a few sensory resets, a change of scene, and grace for yourself. what gets YOU through the witching hour? 👇",
+    lead:{ch:"Instagram",who:"millennial mom · core (comment-driver)"},
+    shoot:{setup:"Home, late-afternoon light, quick-cut list of 5–6 resets. Baby optional — parent + product works.", cast:"Parent + baby optional", tips:"Design for comments — the 'what gets YOU through?' question is the point. Keep each item a fast 2s beat."},
+    shots:[{sec:"0–2s",type:"talking-head / relatable",frame:"Parent, 'it's 5pm again' energy",action:"The relatable groan hook",txt:"5pm hits different 🫠"},{sec:"2–12s",type:"quick-cut list",frame:"6 fast resets, one per beat",action:"Sensory reset, change of scene, etc.",txt:"[reset 1–6]"},{sec:"12–15s",type:"talking-head",frame:"The ask",action:"'what gets YOU through?'",txt:"tell me yours 👇"}],
+    edit:{hook:"Relatable groan in the first frame — instant 'me too.'", pace:"Fast, listy, a little funny.", captions:"Casual, warm, funny.", audio:"'Me as a mom' relatable audio (both).", overlays:"Numbered list + the comment CTA.", length:"15s", aspect:"9:16"},
+    channels:[{k:"fb",who:"grandma · gift-buyer",cut:"Less relevant to grandma — light touch, or skip. If posted: 'for the parents in the trenches at 5pm.'"},{k:"ig",who:"millennial mom · core",cut:"Lead cut — this is a comment-and-share machine (like the 6.6K velcro-swaddle hit). Pin the best replies."},{k:"tt",who:"Gen Z mom · discovery",cut:"Rawest cut, trend audio, 'nobody warns you about 5pm.' Duet-bait."}],
+    test:null,
+    amplify:"Proven engagement/solidarity format — its job is comments + reach, not conversion. Don't put paid behind it; let the algorithm reward the comments.",
+    drove:["'me as a mom' audio","mental-load relief"], why:"Mental-load relief + high comment-driver (like the 6.6K velcro-swaddle hit). Village-solidarity in the brand voice."},
+
+  {id:"YGT-0714-2", pillar:"YGT", dna:"parent-hack", plat:"TikTok", anchor:false, noBaby:true, ladder:false, panelTags:["reassure","first-time","nobaby"], concept:"'Things nobody tells you about month 4' — confessional, parent-only voiceover.", hooks:["things nobody told me about month 4","the 4-month regression is real and here's what helped","month 4: a survival guide nobody handed you"], rec:1, caption:"month 4 is a whole thing 💜 the sleep regression, the distractible feeds, the leaps. you're not doing it wrong — it's just month 4. sending solidarity to everyone in it right now.",
+    lead:{ch:"TikTok",who:"Gen Z mom · discovery (confessional native)"},
+    shoot:{setup:"Parent talking to camera OR text-over-B-roll with voiceover — zero baby needed. Warm, honest, low-production.", cast:"Parent voice/face OR text + VO (no baby)", tips:"Authenticity beats polish here — a real, slightly tired take outperforms a scripted one. If camera-shy, do text-on-screen + a calm voiceover."},
+    shots:[{sec:"0–3s",type:"talking-head / text",frame:"'things nobody told me about month 4'",action:"Confessional hook",txt:"nobody told me about month 4…"},{sec:"3–13s",type:"talking-head / B-roll",frame:"3 honest truths, one per beat",action:"Sleep regression, distractible feeds, leaps",txt:"[truth 1–3]"},{sec:"13–17s",type:"talking-head",frame:"The solidarity close",action:"'you're not doing it wrong'",txt:"you're not doing it wrong 💜"}],
+    edit:{hook:"The confessional 'nobody told me…' — native to the format.", pace:"Real-time, unhurried, honest.", captions:"Full captions (silent scroll).", audio:"Trending confessional/relatable audio.", overlays:"Simple text truths; solidarity end card.", length:"15–18s", aspect:"9:16"},
+    channels:[{k:"fb",who:"grandma · gift-buyer",cut:"'For anyone in the thick of the 4-month regression' — a share of empathy; grandparents send to their kids."},{k:"ig",who:"millennial mom · core",cut:"Reel version, slightly warmer; save + 'tag someone in month 4.'"},{k:"tt",who:"Gen Z mom · discovery",cut:"Lead cut — confessional is TikTok-native. Rawest, realest take wins."}],
+    test:{hyp:"A face-optional confessional can carry the reassurance lane without a baby — proving the casting-independent thesis on the emotional pillar too.",metric:">1.5× reach vs your baby-led posts + strong save/share"},
+    amplify:"Experiment — organic first; its value is trust + reach. If it breaks out, a small TikTok boost to first-time-parent interests ($50).",
+    drove:["first-time-parent reassurance","confessional format"], why:"Baby-independent + deeply relatable. Reassurance tone; builds the 'we hold your hand' trust that drives retention."},
+
+  {id:"YGT-0714-3", pillar:"YGT", dna:"unbox-with-payoff", plat:"IG + TikTok", anchor:false, noBaby:false, ladder:true, panelTags:["gift","reassure"], concept:"'The part of the box that's just for YOU, mom' — the products-for-mom delight.", hooks:["every box has something just for mom — here's this month's","the baby box that remembers the mom too","POV: you open a baby box and there's a treat for YOU"], rec:0, caption:"nobody's there to hold your hand through parenthood — but we sure will 💜 every box tucks in a little something for mom, because you're in this stage too. small, but it hits.",
+    lead:{ch:"Facebook",who:"grandma · gift-buyer (a box that cares for mom too)"},
+    shoot:{setup:"Cozy unboxing focused on the mom gift + one baby item. Warm light, hands + a genuine reaction. Baby optional in frame.", cast:"Parent hands + reaction (baby optional)", tips:"Shoot the reaction to finding the mom treat honestly — that beat is the whole video. Keep it small and real, not staged-lavish."},
+    shots:[{sec:"0–3s",type:"close-up",frame:"Opening the box, spotting the mom treat",action:"The 'wait, this is for ME?' beat",txt:"POV: the baby box remembered YOU"},{sec:"3–10s",type:"close-up",frame:"The mom gift + one baby item beside it",action:"The 'we see you' emotional core",txt:"a little something, just for mom"},{sec:"10–14s",type:"warm close",frame:"Hand on the box / cozy end",action:"'we hold your hand too'",txt:"we hold your hand too 💜"}],
+    edit:{hook:"The 'for ME?' surprise in the first 3s — the emotional payoff upfront.", pace:"Warm, unhurried, feeling-led.", captions:"Tender, mom-to-mom.", audio:"Warm/uplifting trending audio (IG) · original (TikTok).", overlays:"Minimal; let the moment breathe. Soft end card.", length:"14s", aspect:"9:16"},
+    channels:[{k:"fb",who:"grandma · gift-buyer",cut:"STRONG on FB — 'a baby box that takes care of the mom too' is exactly why a grandparent gifts it. Lead with the mom-care angle + gift-sub link."},{k:"ig",who:"millennial mom · core",cut:"Lead cut — the retention/affinity beat. 'the box that remembers you're in this stage too.'"},{k:"tt",who:"Gen Z mom · discovery",cut:"'POV: you open a baby box and there's a treat for YOU 🥹' — trend audio, faster reveal."}],
+    test:null,
+    amplify:"Proven differentiator-as-feeling. The FB gift-cut is a strong conversion asset — boost to grandparents 55+ ($75). Whitelist the emotional reaction as a broad awareness ad.",
+    drove:["products-for-mom differentiator","we-hold-your-hand promise"], why:"Turns a real product differentiator into the brand's emotional core. An unbox that earns its views on feeling, not filler."},
+
+  {id:"BOJ-0714-1", pillar:"BOJ", dna:"unbox-with-payoff", plat:"IG + TikTok", anchor:false, noBaby:false, ladder:true, panelTags:["gift","expert","credible","milestone"], concept:"Unbox the 6-month box — and the developmental WHY behind every single item.", hooks:["unboxing the 6-month box — and why each toy made it in","not just an unboxing: the reason behind every item","6-month box, decoded: what each toy is secretly building"], rec:1, caption:"an unboxing, but make it make sense 📦 every item in the 6-month box has a developmental job — here's what each one is quietly building. this is what 'stage-matched' actually looks like.",
+    lead:{ch:"Instagram",who:"millennial mom · core + gifting grandparents"},
+    shoot:{setup:"Kitchen table, window light, the 6-month box + all items laid out. Hands-only, no baby needed.", cast:"Hands only (no baby)", tips:"Shoot each item-pull twice for a clean take; grab 5s of extra texture B-roll per item. The 'why' overlay is the payoff — get it right per item."},
+    shots:[{sec:"0–2s",type:"overhead",frame:"Closed box, hands enter to open",action:"Open on the 'why does this matter?' promise",txt:"an unboxing, but make it make sense"},{sec:"2–8s",type:"close-up",frame:"Lift each item out, line them up",action:"One item per beat, name it",txt:"[item name per beat]"},{sec:"8–16s",type:"overhead",frame:"Tap each item → a 'why' card appears",action:"The developmental job of each item",txt:"what each one is secretly building"},{sec:"16–20s",type:"close-up",frame:"The full row, complete",action:"'that's stage-matched'",txt:"that's stage-matched 📦"}],
+    edit:{hook:"Open on the 'why does this toy matter?' question in the first second — NOT a bare box shot.", pace:"Satisfying, medium — let each 'why' land ~2s.", captions:"Burned-in, purple, the 'why' keyword in yellow.", audio:"Satisfying/warm trending audio (IG) · original decode VO (TikTok).", overlays:"Per-item 'why' cards + 'stage-matched' end card.", length:"20–25s", aspect:"9:16 (+ a 1:1 carousel cut for saves)"},
+    channels:[{k:"fb",who:"grandma · gift-buyer",cut:"Static carousel + warm long caption 'the gift that grows with your grandbaby — and here's why each toy matters.' Gift-sub link. Slower, no trend sound."},{k:"ig",who:"millennial mom · core",cut:"The Reel + a saveable carousel ('save this — what each 6mo toy builds'). Lead cut."},{k:"tt",who:"Gen Z mom · discovery",cut:"Faster, raw, trend audio, hook-forward: 'POV: the box tells you WHY.'"}],
+    test:{hyp:"Reframing the unbox around 'the developmental why' rescues the format that dies at ~120 views — because the payoff is insight, not product.",metric:">3× your unbox-baseline saves in 48h"},
+    amplify:"Experiment — if it clears the bar, boost the FB gift-cut to grandparents 55+ ($50) and whitelist the IG carousel to millennial-mom lookalikes.",
+    drove:["120-view unbox problem","invisible-personalization gap"], why:"Reframes the format that dies at 120 views — every item earns its place with a developmental reason. Proves personalization on camera."},
+
+  {id:"BOJ-0714-2", pillar:"BOJ", dna:"ugc-testimonial", plat:"TikTok + IG", anchor:false, noBaby:false, ladder:true, panelTags:["credible","gift"], concept:"'POV: the box knew exactly what stage we were in' — repurposed customer reaction.", hooks:["POV: the box knew what stage we were in before I did","the 'how did they know' unboxing reaction","real mom, real 8-month-old, real reaction"], rec:0, caption:"when the box just… gets your baby's stage 🥹 (repost from a real subscriber). this is the personalization we're always talking about — you just have to feel it.",
+    lead:{ch:"TikTok",who:"Gen Z mom · discovery (social proof)"},
+    shoot:{setup:"NO SHOOT — source from a real subscriber under a perpetual-rights agreement. Add light brand text framing. The KiwiCo UGC machine, started small.", cast:"Real subscriber (UGC) — you don't film it", tips:"Set up a simple UGC-rights DM template + a small perk so you have a pipeline. Pick reactions that are genuine, not performed. Always get written perpetual rights."},
+    shots:[{sec:"0–3s",type:"UGC vertical",frame:"Real subscriber opens the box",action:"Authentic anticipation",txt:"POV: the box knew our stage before I did"},{sec:"3–10s",type:"UGC vertical",frame:"Genuine 'how did they know' reaction",action:"The unscripted delight — the whole asset",txt:"how did they KNOW 🥹"},{sec:"10–13s",type:"brand text card",frame:"Light brand framing",action:"'that's the personalization'",txt:"↳ that's the age-stage match"}],
+    edit:{hook:"Lead with the realest reaction beat — raw UGC out-converts polished brand video ~40%.", pace:"Keep the UGC's native pacing; don't over-edit.", captions:"Add branded captions if the original lacks them.", audio:"Trending reaction audio (or keep the creator's original).", overlays:"Minimal brand frame + one 'personalization' card.", length:"12–15s", aspect:"9:16"},
+    channels:[{k:"fb",who:"grandma · gift-buyer",cut:"'A real mom's reaction to the box' — social proof reassures the gift-buyer they're giving the right thing. Gift-sub CTA."},{k:"ig",who:"millennial mom · core",cut:"Reel + Story repost tagging the creator; 'this is the personalization we mean.'"},{k:"tt",who:"Gen Z mom · discovery",cut:"Lead cut — UGC is TikTok's native currency. Stitch/duet-friendly."}],
+    test:{hyp:"A perpetual-rights UGC pipeline can out-perform (and out-scale) brand-made content — starting the KiwiCo machine small.",metric:">1.5× engagement vs brand-made unboxes; ≥3 rights-cleared clips banked this month"},
+    amplify:"Experiment + a paid unlock — UGC whitelisted as Spark Ads is your cheapest efficient acquisition. If a clip pops, put $75 behind it as a Spark Ad to lookalikes.",
+    drove:["KiwiCo UGC model","personalization-felt gap"], why:"Kicks off the perpetual-rights UGC engine + lets a customer prove the personalization the brand keeps claiming."},
+
+  {id:"BOJ-0714-3", pillar:"BOJ", dna:"seasonal-drop", plat:"IG + TikTok", anchor:false, noBaby:true, ladder:true, panelTags:["reassure","gift","nobaby"], concept:"'Back-to-daycare transition toys' — front-loading the Aug daycare window.", hooks:["starting daycare soon? these are the transition toys that help","the comfort-object strategy for daycare drop-offs","how to ease the daycare transition (from a stage-matched box)"], rec:1, caption:"daycare season is coming 💜 separation anxiety peaks 6–18 months, and the right comfort object + familiar play can make drop-offs a little softer. saving this for every parent gearing up for the transition.",
+    lead:{ch:"Facebook",who:"grandma · gift-buyer (ease the daycare transition)"},
+    shoot:{setup:"Product + tips B-roll, gentle warm tone, soft light. Zero baby needed. Shoot now, schedule to land mid-August.", cast:"Hands + product (no baby)", tips:"This is a timing play — bank it now, post it ~2 weeks before the daycare wave. Lead with empathy for the drop-off, not the product."},
+    shots:[{sec:"0–3s",type:"warm close-up",frame:"A comfort object in soft light",action:"The emotional daycare hook",txt:"daycare season is coming 💜"},{sec:"3–12s",type:"product B-roll",frame:"3 transition-toy tips",action:"Comfort object, familiar play, a routine anchor",txt:"[tip 1–3]"},{sec:"12–15s",type:"gentle close",frame:"Soft reassurance",action:"'you've got this — and so do they'",txt:"you've got this 💜"}],
+    edit:{hook:"Empathy-first: name the drop-off feeling before any tip.", pace:"Gentle, reassuring.", captions:"Warm, supportive.", audio:"Warm/emotional trending audio (IG) · original tips VO (TikTok).", overlays:"Tip labels + gentle end card.", length:"15s", aspect:"9:16"},
+    channels:[{k:"fb",who:"grandma · gift-buyer",cut:"'Help ease your grandbaby's daycare transition' — timely, caring, giftable. Strong FB share window in August. Gift-sub link."},{k:"ig",who:"millennial mom · core",cut:"Lead cut — save it, timed to the daycare wave. Also a carousel of the 3 tips."},{k:"tt",who:"Gen Z mom · discovery",cut:"'starting daycare? save this 🥺' — emotional hook, trend audio."}],
+    test:null,
+    amplify:"Proven seasonal-timing play. Front-load a small FB/IG boost mid-August to parents of 6–18mo + grandparents; the moment is dense and the intent is high.",
+    drove:["Aug daycare cluster","separation-anxiety pulse"], why:"Times the year's densest owned-moment cluster. Baby-independent, emotionally resonant, ladders to the box."},
 ];
 const CONVICTION = {
   "PWP-0714-1":{voice:92,panel:88,pulse:94,rec:6},"PWP-0714-2":{voice:84,panel:80,pulse:88,rec:9},
@@ -472,8 +698,8 @@ const ENGINE_STEPS = [
   {agent:"Milestone Mapper",icon:"🗺️",title:"Mapped to a stage",focus:"anchors the signal to an age band",watches:["developmental milestones","age-gated search demand"],what:"Maps the winning format one age band up (6–7mo) and to the box that serves that stage.",filters:["Which stage does this serve?","Does a box exist for it?"],verdict:"6–7mo band, ladders to the 6-month box.",incoming:"Signal Scout"},
   {agent:"Voice Keeper",icon:"💜",title:"Scored on voice",focus:"checks brand fit + tone",watches:["voice exemplars","reassure-not-shame rule"],what:"Rewrites the hook in the warm, budget-honest, mom-to-mom register. Kills any shame framing.",filters:["Warm, not clinical?","Reassures, never shames?"],verdict:"On voice. 'Development doesn't have to be expensive.'",incoming:"Milestone Mapper"},
   {agent:"Ladder Check",icon:"🪜",title:"Ladders to the box",focus:"connects free value → product",watches:["the box contents by age","personalization gap"],what:"Adds the bridge: 'this is the play in the 6-month box' — shows the age-stage logic instead of claiming it.",filters:["Does free value open a door to the box?","Is personalization shown, not claimed?"],verdict:"Laddered. Personalization made visible.",incoming:"Voice Keeper"},
-  {agent:"Parent Panel",icon:"👩‍👩‍👧",title:"Pre-tested on parents",focus:"4 named parent personas react",watches:["Fiona · Bree · Sam · Gail","save/share likelihood"],what:"Runs the concept past first-time, budget, second-time, and gifter personas — the same panel that scores every brief.",filters:["Would they save it?","Does it soothe or stoke?"],verdict:"High save intent, reassurance confirmed.",incoming:"Ladder Check"},
-  {agent:"Casting Referee",icon:"🎬",title:"Casting-rule check",focus:"can this scale without a baby?",watches:["the Casting Rule (≥3 no-baby/wk)","format library"],what:"Confirms the week has enough baby-independent formats; offers a no-baby alternate where possible.",filters:["Baby required?","Is there a no-baby version?"],verdict:"Week has 8 baby-independent briefs. Bottleneck cleared.",incoming:"Parent Panel"},
+  {agent:"Focus Group",icon:"👥",title:"Pre-tested on your customers",focus:"3 core customers · one per channel",watches:["Grandma/FB · Millennial mom/IG · Gen Z mom/TikTok","save / share / gift likelihood"],what:"Runs the concept past the same three customers you're actually talking to on each channel — the live focus group that scores every brief.",filters:["Would they save + share it?","Does it soothe or stoke?"],verdict:"High save intent from the millennial mom; gift intent from Grandma.",incoming:"Ladder Check"},
+  {agent:"Casting Referee",icon:"🎬",title:"Casting-rule check",focus:"can this scale without a baby?",watches:["the Casting Rule (≥3 no-baby/wk)","format library"],what:"Confirms the week has enough baby-independent formats; offers a no-baby alternate where possible.",filters:["Baby required?","Is there a no-baby version?"],verdict:"Week has 8 baby-independent briefs. Bottleneck cleared.",incoming:"Focus Group"},
   {agent:"Brief Builder",icon:"📝",title:"Brief delivered",focus:"assembles the production-ready brief",watches:["hooks","captions","shot list","audio lane"],what:"Ships the full brief — hooks, 3 caption variants, shot list, platform audio, the developmental why.",filters:["Production-ready?","Team can shoot it this week?"],verdict:"Delivered. Your team produces + distributes.",incoming:"Casting Referee"},
 ];
 
@@ -544,7 +770,7 @@ function MondayMemo({onClose,onGo}){
 
 function IntelBrief({onDrop,onOpen}){
   const [tab,setTab]=useState("pulse");
-  const tabs=[["pulse","Cultural Pulse",PULSE.length],["trends","Category + Research",TRENDS.length],["comps","Competitor Watch",COMPETITORS.length],["amb","Brand Ambassadors",AMBASSADORS.length],["panel","Parent Panel",PANEL.length]];
+  const tabs=[["pulse","Cultural Pulse",PULSE.length],["trends","Category + Research",TRENDS.length],["comps","Competitor Watch",COMPETITORS.length],["amb","Brand Ambassadors",AMBASSADORS.length],["panel","Focus Group",PANEL.length]];
   const briefById=id=>BRIEFS.find(b=>b.id===id);
   const Pips=({pillars})=>(<div className="pips">{(pillars||[]).map(pk=>(<span className="pip" key={pk} title={"This signal feeds the “"+PILLARS[pk].short+"” content pillar"} style={{background:PILLARS[pk].color+"1c",color:PILLARS[pk].color}}>{PILLARS[pk].glyph} {PILLARS[pk].short}</span>))}</div>);
   const DroveLink=({id})=>{const b=briefById(id);if(!b)return null;return(<button className="brief-link" title="Open the content brief this signal generated" onClick={()=>onOpen(b)}><span className="bl-arrow">↳ we turned this into a brief:</span><span style={{fontWeight:700,color:"var(--ink)"}}>{b.concept.length>52?b.concept.slice(0,52)+"…":b.concept}</span></button>);};
@@ -613,10 +839,10 @@ function IntelBrief({onDrop,onOpen}){
       </>)}
 
       {tab==="panel" && (<>
-        <div className="wip-banner" style={{background:'var(--brand-light)',border:'1.5px solid var(--brand-mid)'}}><span className="tag">THE SCORERS</span><p>Every brief's <b>panel</b> score comes from these four synthetic parents — not a black box. They're modeled on 123 Baby Box's real audience segments. Open any brief to see how each one reacts.</p></div>
-        <div className="grid grid-2">{PANEL.map((p,i)=>(
+        <div className="wip-banner" style={{background:'var(--brand-light)',border:'1.5px solid var(--brand-mid)'}}><span className="tag">YOUR FOCUS GROUP</span><p>Every brief is pre-tested on your <b>three core customers — one per channel</b>: Grandma on Facebook, the millennial mom on Instagram, the Gen Z mom on TikTok. Not a black box — open any brief and hit <b>⚡ Run the live focus group</b> to hear each one react in real time.</p></div>
+        <div className="grid grid-3">{PANEL.map((p,i)=>(
           <div className="card" key={i}><div className="rail" style={{background:'var(--pink)'}}></div>
-            <div className="card-head"><div className="glyph" style={{background:'var(--brand-light)',fontSize:20}}>{p.emoji}</div><h3 style={{margin:0,fontFamily:'Grandstander',fontWeight:800,fontSize:16,color:'var(--brand)'}}>{p.name}</h3></div>
+            <div className="card-head"><div className="glyph" style={{background:'var(--brand-light)',fontSize:20}}>{p.emoji}</div><div><h3 style={{margin:0,fontFamily:'Grandstander',fontWeight:800,fontSize:15,color:'var(--brand)'}}>{p.name}</h3><div style={{fontFamily:'JetBrains Mono',fontSize:8.5,fontWeight:800,letterSpacing:'.04em',color:'var(--ink-soft)',marginTop:2}}>▶ {p.channel}</div></div></div>
             <p className="detail">{p.bio}</p>
             <div className="chips">{p.loves.map((l,j)=>(<span className="chip brand" key={j}>{l}</span>))}</div>
           </div>))}
@@ -640,16 +866,42 @@ function CastingMeter(){
 
 function ContentBriefs({onOpen}){
   const groups=Object.keys(PILLARS).map(pk=>({pk,...PILLARS[pk],briefs:BRIEFS.filter(b=>b.pillar===pk).sort((a,b)=>(getConv(b.id)?.score||0)-(getConv(a.id)?.score||0))}));
-  const scripted=BRIEFS.filter(b=>b.audioIG||b.audioTT).length, noBaby=BRIEFS.filter(b=>b.noBaby).length;
+  const experiments=BRIEFS.filter(b=>b.test), noBaby=BRIEFS.filter(b=>b.noBaby).length;
+  const CHANNELS=[
+    {ch:"Facebook",ic:"👵",who:"Gifting Grandma",job:"Gifting — expert-backed, warm, shareable. Your conversion + gift channel.",color:"#3B6FB5"},
+    {ch:"Instagram",ic:"💜",who:"Millennial Mom",job:"Your core subscriber — milestone content, saves, aspirational-but-real. The retention + brand channel.",color:"var(--brand)"},
+    {ch:"TikTok",ic:"⚡",who:"Gen Z Mom",job:"Discovery — fast, raw, trend-native, a little funny. The reach + acquisition channel.",color:"var(--ink)"},
+  ];
+  const paid=BRIEFS.filter(b=>b.amplify&&b.amplify.includes("$"));
+  const chIc={Facebook:"👵",Instagram:"💜",TikTok:"⚡"};
   return (
     <div className="wrap">
       <div className="ride-hero">
         <div className="ride-count">⚡ {BRIEFS.filter(b=>b.anchor).length} anchors</div>
         <div><h2>THIS WEEK'S BEATS</h2><p>ride the proven expertise · build owned authority · ladder every free tip to the box</p></div>
-        <div className="ride-meta">{BRIEFS.length} briefs · {scripted} scripted video<br/>{noBaby} need no baby on set 🎬</div>
+        <div className="ride-meta">{BRIEFS.length} briefs · {experiments.length} experiments 🧪<br/>{noBaby} need no baby on set 🎬</div>
       </div>
-      <div className="read-hint"><span className="rh-ico">👀</span><div><b>New here? How to read a brief:</b> each card is a ready-to-shoot content idea for your team, grouped by the four <b>content pillars</b> (the colored headings). The green <b>score</b> is how confident we are it'll perform — hover it for the math. <b>Click any card</b> to open the full brief: hooks, captions, a shot list, and a pre-test from four synthetic parents. <b>no baby ✓</b> means it needs no baby on camera to shoot.</div></div>
+
+      <div className="section-eyebrow" style={{marginTop:0}}>📡 Your channel playbook — one audience per platform</div>
+      <div className="chan-strip">{CHANNELS.map((c,i)=>{const n=BRIEFS.filter(b=>b.lead.ch===c.ch).length;return(
+        <div className="chan-pb" key={i}><div className="cc-top"><span className="cc-ic" style={{background:c.color}}>{c.ic}</span><div><div className="cc-plat">{c.ch}</div><div className="cc-who">{c.who}</div></div></div><div className="cc-job">{c.job}</div><div className="cc-lead">{n} brief{n===1?"":"s"} lead here this week</div></div>
+      );})}</div>
+
+      <div className="read-hint"><span className="rh-ico">👀</span><div><b>New here? How to read a brief:</b> each card is a ready-to-shoot content idea for your team, grouped by the four <b>content pillars</b> (the colored headings). The green <b>score</b> is how confident we are it'll perform — hover it for the math. <b>Click any card</b> to open the full brief: a full <b>production map</b> (what to shoot · how to edit · how to adapt for grandma-FB / millennial-IG / GenZ-TikTok · what to put paid behind), the words to post, and a live pre-test from your three core customers (Grandma/FB · Millennial mom/IG · Gen Z mom/TikTok). <b>🧪 test</b> flags an experiment; <b>no baby ✓</b> needs no baby on camera.</div></div>
       <CastingMeter/>
+
+      <div className="grid grid-2" style={{marginBottom:22}}>
+        <div className="wk-mod">
+          <div className="wk-h">🧪 This week's experiments <span className="wk-ct">{experiments.length}</span></div>
+          <div className="wk-sub">Structured tests you can actually learn from — she's always ready to experiment. Proven plays earn trust; experiments are how we find what's next.</div>
+          {experiments.map((b,i)=>(<div className="exp-item" key={i} onClick={()=>onOpen(b)}><div className="exp-item-t">{chIc[b.lead.ch]} {b.concept}</div><div className="prod-meta"><span className="pm-k">Testing</span>{b.test.hyp}</div><div className="prod-meta"><span className="pm-k">Success</span>{b.test.metric}</div></div>))}
+        </div>
+        <div className="wk-mod">
+          <div className="wk-h">📈 Paid plays this week <span className="wk-ct">{paid.length}</span></div>
+          <div className="wk-sub">Small, targeted amplification (the Willa's model) — boost what earns it organically, to the right audience on the right channel.</div>
+          {paid.map((b,i)=>(<div className="paid-item" key={i} onClick={()=>onOpen(b)}><span className="paid-ic">{chIc[b.lead.ch]}</span><div><div className="paid-t">{b.concept}</div><div className="paid-note">{b.amplify}</div></div></div>))}
+        </div>
+      </div>
       {groups.map(g=>(
         <div key={g.pk}>
           <div className="pillar-head"><div className="pillar-sw" style={{background:g.color}}></div><h3>{g.name}</h3><span className="ct">{g.briefs.length} briefs</span></div>
@@ -660,7 +912,7 @@ function ContentBriefs({onOpen}){
                 {c&&(<span className={"conv c"+c.band}>{c.band} {c.score}<span className="tip">voice <b>{c.voice}</b> · panel <b>{c.panel}</b> · pulse <b>{c.pulse}</b><br/>avg {c.base} + recency {c.rec} = <b>{c.score}</b><br/>{c.band==="HIGH"?"ship first":c.band==="MEDIUM"?"solid bet":"hedge"}</span></span>)}
               </div>
               <h4>{b.concept}</h4>
-              <div className="brief-bottom"><span className="chip brand" title="Format type">{b.dna}</span><span className="chip plat" title="Where it posts">{b.plat}</span>{b.noBaby&&<span className="nobaby" title="Can be produced without a baby on camera">no baby ✓</span>}{b.anchor&&<span className="anchor-tag" title="A priority 'big swing' to lead the week">⚡ anchor</span>}</div>
+              <div className="brief-bottom"><span className="chip brand" title="Format type">{b.dna}</span><span className="chip plat" title={"Leads on "+b.lead.ch}>{b.lead.ch}</span>{b.noBaby&&<span className="nobaby" title="Can be produced without a baby on camera">no baby ✓</span>}{b.test&&<span className="nobaby" style={{background:'var(--accent-pale)',color:'var(--accent-deep)'}} title="A flagged experiment this week">🧪 test</span>}{b.anchor&&<span className="anchor-tag" title="A priority 'big swing' to lead the week">⚡ anchor</span>}</div>
             </div>);})}
           </div>
         </div>
@@ -669,9 +921,25 @@ function ContentBriefs({onOpen}){
   );
 }
 
+function bandFor(s){return s>=82?"hi":s>=70?"mid":"lo";}
+const CHAN={fb:{ic:"👵",label:"Facebook",cls:"chan-fb"},ig:{ic:"💜",label:"Instagram",cls:"chan-ig"},tt:{ic:"⚡",label:"TikTok",cls:"chan-tt"}};
 function BriefModal({b,onClose,onStudio}){
   const c=getConv(b.id),P=PILLARS[b.pillar],reacts=panelReact(b);
-  const caps=[["Direct",b.caption],["Warm",b.caption],["Punchy",b.hooks[b.rec]]];
+  const [pmode,setPmode]=useState("static");
+  const [live,setLive]=useState(null);
+  async function runPanel(){
+    setPmode("loading");
+    try{
+      const res=await fetch("/api/panel",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({id:b.id,concept:b.concept,hooks:b.hooks,caption:b.caption,pillar:P.name,dna:b.dna})});
+      if(!res.ok) throw new Error("api "+res.status);
+      const data=await res.json();
+      const emo={gail:"🎁",mia:"💜",zoe:"⚡"}, nm={gail:"Gifting Grandma Gail",mia:"Millennial-Mom Mia",zoe:"Gen-Z-Mom Zoe"}, chn={gail:"Facebook",mia:"Instagram",zoe:"TikTok"};
+      const norm=(data.reactions||[]).map(r=>({name:nm[r.key]||r.name||r.key,emoji:emo[r.key]||"💜",channel:chn[r.key]||"",score:r.score,line:r.line,band:bandFor(r.score),share:r.share||""}));
+      if(!norm.length) throw new Error("empty");
+      setLive(norm); setPmode("live");
+    }catch(e){ setPmode("error"); }
+  }
+  const shown = pmode==="live"&&live ? live : reacts.map(r=>({name:r.p.name,emoji:r.p.emoji,channel:r.p.channel,score:r.score,line:r.line,band:r.band,share:""}));
   const pc={hi:{background:'#E7F5EC',color:'#2E8B57'},mid:{background:'var(--accent-pale)',color:'var(--accent-deep)'},lo:{background:'#EFEDE7',color:'#8A8175'}};
   return (
     <div className="overlay" onClick={onClose}>
@@ -682,24 +950,68 @@ function BriefModal({b,onClose,onStudio}){
           <h1 style={{fontFamily:'Fraunces',fontSize:21,margin:'7px 0 0',lineHeight:1.3,fontWeight:600}}>{b.concept}</h1>
           <div style={{display:'flex',gap:6,flexWrap:'wrap',marginTop:12}}>
             {c&&<span className="chip" style={{background:'rgba(255,255,255,.2)',color:'#fff'}}>Conviction {c.score} · {c.band}</span>}
-            <span className="chip" style={{background:'rgba(255,255,255,.2)',color:'#fff'}}>{b.plat}</span>
+            <span className="chip" style={{background:'rgba(255,255,255,.2)',color:'#fff'}}>Leads on {b.lead.ch}</span>
             <span className="chip" style={{background:'rgba(255,255,255,.2)',color:'#fff'}}>{DNA[b.dna]} {b.dna}</span>
             {b.noBaby&&<span className="chip" style={{background:'rgba(255,255,255,.2)',color:'#fff'}}>🎬 no baby needed</span>}
-            {b.ladder&&<span className="chip" style={{background:'var(--accent)',color:'var(--brand-deep)'}}>🪜 ladders to box</span>}
+            {b.test?<span className="chip" style={{background:'var(--accent)',color:'var(--brand-deep)'}}>🧪 experiment</span>:<span className="chip" style={{background:'rgba(255,255,255,.28)',color:'#fff'}}>✓ proven play</span>}
           </div>
         </div>
         <div className="modal-body">
           <div className="m-sec"><div className="m-sec-label">💡 Why this brief, this week</div><div style={{fontSize:13,lineHeight:1.55,color:'var(--ink-soft)'}}>{b.why}</div></div>
           <div className="m-sec"><div className="m-sec-label">📡 Intel that drove this</div>{b.drove.map((d,i)=>(<div className="intel-row" key={i}><span>↳</span><div>{d}</div></div>))}</div>
-          <div className="m-sec"><div className="m-sec-label">🎣 Hooks · {b.hooks.length} options</div>{b.hooks.map((h,i)=>(<div className={"hookrow"+(i===b.rec?" rec":"")} key={i}>{i===b.rec&&<span className="rec-tag">★ RECOMMENDED</span>}{h}</div>))}</div>
-          <div className="m-sec"><div className="m-sec-label">📱 Phone shot list</div>
-            <div className="phone-row">{b.scenes.map((s,i)=>(<div className="phone" key={i}><div className="phone-screen"><div className="phone-scene">SCENE {i+1}</div><div className="phone-txt">{s}</div><div className="phone-cap">{b.plat.includes("TikTok")?"vertical · 9:16":"reel · 9:16"}</div></div></div>))}</div>
+
+          <div className="m-sec"><div className="m-sec-label">🎬 The Production Map — what to shoot + how to edit</div>
+            <div className="prod-lead">Leads on <b>{b.lead.ch}</b> · {b.lead.who}</div>
+
+            <div className="prod-block">
+              <div className="prod-h">🎬 Shoot</div>
+              <div className="prod-meta"><span className="pm-k">Setup</span>{b.shoot.setup}</div>
+              <div className="prod-meta"><span className="pm-k">On camera</span>{b.shoot.cast}</div>
+              <div className="phone-row">{b.shots.map((s,i)=>(<div className="phone" key={i}><div className="phone-screen"><div className="phone-top"><span className="phone-scene">SHOT {i+1}</span><span className="phone-sec">{s.sec}</span></div><div className="phone-type">{s.type}</div><div className="phone-do">{s.frame}. {s.action}</div>{s.txt&&<div className="phone-osd"><span className="osl">ON SCREEN</span>{s.txt}</div>}</div></div>))}</div>
+              <div className="prod-tip">💡 {b.shoot.tips}</div>
+            </div>
+
+            <div className="prod-block">
+              <div className="prod-h">✂️ Edit</div>
+              <div className="edit-grid">
+                <div className="eg"><span className="pm-k">Hook</span>{b.edit.hook}</div>
+                <div className="eg"><span className="pm-k">Pace</span>{b.edit.pace}</div>
+                <div className="eg"><span className="pm-k">Captions</span>{b.edit.captions}</div>
+                <div className="eg"><span className="pm-k">Audio</span>{b.edit.audio}</div>
+                <div className="eg"><span className="pm-k">Overlays</span>{b.edit.overlays}</div>
+                <div className="eg"><span className="pm-k">Length · Aspect</span>{b.edit.length} · {b.edit.aspect}</div>
+              </div>
+            </div>
+
+            <div className="prod-block">
+              <div className="prod-h">📱 Adapt per channel</div>
+              {b.channels.map((ch,i)=>{const M=CHAN[ch.k];return(<div className="chan-row" key={i}><div className={"chan-badge "+M.cls}>{M.ic}</div><div style={{flex:1}}><div className="chan-who">{M.label} · {ch.who}</div><div className="chan-cut">{ch.cut}</div></div></div>);})}
+            </div>
+
+            <div className="prod-block">
+              <div className="prod-h">📈 Amplify + test<span className="ph-tags">{b.test?<span className="exp-tag">🧪 EXPERIMENT</span>:<span className="proven-tag">✓ PROVEN</span>}</span></div>
+              {b.test&&<div className="exp-box"><div className="prod-meta"><span className="pm-k">Hypothesis</span>{b.test.hyp}</div><div className="prod-meta"><span className="pm-k">Success signal</span>{b.test.metric}</div></div>}
+              <div className="prod-meta"><span className="pm-k">Paid play</span>{b.amplify}</div>
+            </div>
+
+            <div className="produce-teaser"><span className="pt-ic">🎬</span><div><b>Hand this straight to your editor + social manager</b><span className="soon-pill">AUTO-PRODUCE · SOON</span><div className="pt-sub">Everything above is what your squad needs to shoot + cut this today. Soon, the engine assembles the first cut for you — turnkey, from signal to finished video.</div></div></div>
           </div>
-          <div className="m-sec"><div className="m-sec-label">✍️ Captions · 3 variants</div>{caps.map((cv,i)=>(<div className="capvar" key={i}><div className="cvlabel"><span>{cv[0]}</span><button className="copybtn" onClick={()=>navigator.clipboard&&navigator.clipboard.writeText(cv[1])}>copy</button></div><p>{cv[1]}</p></div>))}</div>
-          <div className="m-sec"><div className="m-sec-label">👩‍👩‍👧 Parent Panel pre-test</div>
-            {reacts.map((r,i)=>(<div className="panel-react" key={i}><div className="panel-av">{r.p.emoji}</div><div style={{flex:1}}><div style={{display:'flex',alignItems:'center'}}><span className="panel-name">{r.p.name}</span><span className="panel-score" style={pc[r.band]}>{r.score}</span></div><div className="panel-line">"{r.line}"</div></div></div>))}
+
+          <div className="m-sec"><div className="m-sec-label">✍️ The words</div>
+            <div className="words-sub">Hooks · the opening line / on-screen (pick one)</div>
+            {b.hooks.map((h,i)=>(<div className={"hookrow"+(i===b.rec?" rec":"")} key={i}>{i===b.rec&&<span className="rec-tag">★ RECOMMENDED</span>}{h}</div>))}
+            <div className="words-sub" style={{marginTop:15}}>Caption · the post text</div>
+            <div className="capvar"><div className="cvlabel"><span>ready to post</span><button className="copybtn" onClick={()=>navigator.clipboard&&navigator.clipboard.writeText(b.caption)}>copy</button></div><p>{b.caption}</p></div>
           </div>
-          <details className="acc"><summary>🎬 Production <span className="chev">▾</span></summary><div className="acc-body"><b>Visual direction:</b> {b.visual}<br/><br/><b>Audio — IG:</b> {b.audioIG||"n/a (still/carousel)"}<br/><b>Audio — TikTok:</b> {b.audioTT||"n/a (still/carousel)"}</div></details>
+
+          <div className="m-sec"><div className="m-sec-label">👥 The Focus Group {pmode==="live"?<span className="panel-live-badge">● LIVE</span>:"pre-test"}</div>
+            <div className="panel-head">
+              <span className="panel-note">{pmode==="live"?"Fresh reactions from your three core customers, generated just now.":pmode==="error"?"The live focus group runs once this is deployed with the API key — showing the modeled read for now.":pmode==="loading"?"Asking your three customers to react…":"Your three core customers — one per channel — react to this exact brief. Run it live for a fresh take."}</span>
+              {pmode!=="live"&&<button className="panel-run" onClick={runPanel} disabled={pmode==="loading"}>{pmode==="loading"?"thinking…":"⚡ Run the live focus group"}</button>}
+            </div>
+            {shown.map((r,i)=>(<div className="panel-react" key={i}><div className="panel-av">{r.emoji}</div><div style={{flex:1}}><div style={{display:'flex',alignItems:'center',gap:7,flexWrap:'wrap'}}><span className="panel-name">{r.name}</span>{r.channel&&<span className="panel-chan">{r.channel}</span>}{r.share&&<span className="panel-share">{r.share}</span>}<span className="panel-score" style={pc[r.band]}>{r.score}</span></div><div className="panel-line">"{r.line}"</div></div></div>))}
+          </div>
+
           <details className="acc"><summary>🪜 The box ladder <span className="chev">▾</span></summary><div className="acc-body">{b.ladder?"This brief explicitly bridges free value → the age-right box, making the personalization visible instead of claimed.":"This brief is top-of-funnel reach/affinity — it earns trust without a direct box pitch. Not every brief should ladder; the mix does."}</div></details>
           <Btn style={{width:'100%',padding:13,marginTop:6}} onClick={()=>onStudio(b)}>↓ Sharpen this in Studio</Btn>
         </div>
@@ -735,17 +1047,112 @@ function MilestoneMap(){
   );
 }
 
-function StudioTeaser(){
+// ---- lightweight markdown → React (ported OBSOLETE renderer) ----
+function stInline(t){
+  const nodes=[]; let key=0, last=0, m;
+  const re=/(\*\*([^*]+)\*\*)|(\*([^*]+)\*)|(`([^`]+)`)|(\[([^\]]+)\]\(([^)]+)\))/g;
+  while((m=re.exec(t))){
+    if(m.index>last) nodes.push(t.slice(last,m.index));
+    if(m[1]) nodes.push(<strong key={key++}>{m[2]}</strong>);
+    else if(m[3]) nodes.push(<em key={key++}>{m[4]}</em>);
+    else if(m[5]) nodes.push(<code key={key++}>{m[6]}</code>);
+    else if(m[7]) nodes.push(<a key={key++} href={m[9]} target="_blank" rel="noopener noreferrer">{m[8]}</a>);
+    last=re.lastIndex;
+  }
+  if(last<t.length) nodes.push(t.slice(last));
+  return nodes;
+}
+function renderMarkdown(md){
+  const lines=(md||"").split("\n"), out=[]; let i=0,key=0,list=null,lt=null;
+  const flush=()=>{ if(list){ out.push(lt==="ol"?<ol key={key++}>{list}</ol>:<ul key={key++}>{list}</ul>); list=null; } };
+  const special=x=>/^(#{1,3}\s|>\s?|\s*[-*]\s|\s*\d+\.\s|\s*(---|\*\*\*)\s*$)/.test(x);
+  while(i<lines.length){
+    const ln=lines[i];
+    if(/^\s*$/.test(ln)){ flush(); i++; continue; }
+    if(/^###\s+/.test(ln)){ flush(); out.push(<h4 key={key++}>{stInline(ln.replace(/^###\s+/,''))}</h4>); i++; continue; }
+    if(/^#{1,2}\s+/.test(ln)){ flush(); out.push(<h3 key={key++}>{stInline(ln.replace(/^#{1,2}\s+/,''))}</h3>); i++; continue; }
+    if(/^\s*(---|\*\*\*)\s*$/.test(ln)){ flush(); out.push(<hr key={key++}/>); i++; continue; }
+    if(/^\s*>\s?/.test(ln)){ flush(); out.push(<blockquote key={key++}>{stInline(ln.replace(/^\s*>\s?/,''))}</blockquote>); i++; continue; }
+    const om=ln.match(/^\s*\d+\.\s+(.*)/);
+    if(om){ if(lt!=="ol"){flush();lt="ol";} if(!list)list=[]; list.push(<li key={key++}>{stInline(om[1])}</li>); i++; continue; }
+    const um=ln.match(/^\s*[-*]\s+(.*)/);
+    if(um){ if(lt!=="ul"){flush();lt="ul";} if(!list)list=[]; list.push(<li key={key++}>{stInline(um[1])}</li>); i++; continue; }
+    flush(); const para=[ln]; i++;
+    while(i<lines.length && !/^\s*$/.test(lines[i]) && !special(lines[i])){ para.push(lines[i]); i++; }
+    out.push(<p key={key++}>{stInline(para.join(" "))}</p>);
+  }
+  flush();
+  return out;
+}
+
+const SUGG_DEFAULT=[
+  {l:"NO-BABY HOOKS",q:"Give me 3 no-baby hooks for the 9-month container milestone."},
+  {l:"VOICE",q:"Rewrite this caption to reassure, not shame."},
+  {l:"PRODUCTION",q:"Give me a full shot list + edit plan for a back-to-daycare Reel."},
+  {l:"SERIES",q:"Turn the wake-window hit into a 6-week age-ladder series."},
+];
+const SUGG_BRIEF=[
+  {l:"SHARPEN",q:"Sharpen the recommended hook — give me 3 punchier versions."},
+  {l:"ADAPT",q:"Rewrite the caption three ways — one for Grandma/FB, one for the millennial mom/IG, one for Gen Z mom/TikTok."},
+  {l:"REMIX",q:"Give me an alternate, baby-independent shot list for this same concept."},
+  {l:"GUT-CHECK",q:"Which of my three customers is this weakest for, and how would you fix it?"},
+];
+const SUGG_SIGNAL=[
+  {l:"BRIEF IT",q:"Turn this signal into a ready-to-shoot brief with a production map."},
+  {l:"IDEAS",q:"Give me 3 no-baby post ideas riding this."},
+  {l:"CHANNEL",q:"Which channel (FB/IG/TikTok) should lead this, and why?"},
+  {l:"LADDER",q:"How would you ladder this free tip to the age-right box?"},
+];
+
+function Studio({seed,onClearSeed}){
+  const [msgs,setMsgs]=useState([]);
+  const [input,setInput]=useState("");
+  const [busy,setBusy]=useState(false);
+  const [err,setErr]=useState("");
+  const scroll=useRef(null);
+  useEffect(()=>{ if(scroll.current) scroll.current.scrollTop=scroll.current.scrollHeight; },[msgs,err]);
+  const ctxLabel = seed ? (seed.type==="brief" ? seed.brief.concept : seed.text) : null;
+  const sugg = seed ? (seed.type==="brief"?SUGG_BRIEF:SUGG_SIGNAL) : SUGG_DEFAULT;
+  async function send(text){
+    const q=(text!=null?text:input).trim(); if(!q||busy) return;
+    setInput(""); setErr("");
+    const base=[...msgs,{role:"user",content:q}];
+    setMsgs([...base,{role:"assistant",content:""}]); setBusy(true);
+    try{
+      const res=await fetch("/api/studio",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:base,seed})});
+      if(!res.ok||!res.body) throw new Error("api");
+      const rd=res.body.getReader(),dec=new TextDecoder(); let acc="";
+      for(;;){ const {done,value}=await rd.read(); if(done) break; acc+=dec.decode(value,{stream:true}); setMsgs(m=>{const c=m.slice();c[c.length-1]={role:"assistant",content:acc};return c;}); }
+      if(!acc.trim()) throw new Error("empty");
+    }catch(e){
+      setMsgs(m=>m.slice(0,-1));
+      setErr("The Strategist goes live the moment this is deployed to Vercel with your ANTHROPIC_API_KEY. Running locally there's no server to answer — but the flow, the context, and the whole engine brain are wired and ready.");
+    }finally{ setBusy(false); }
+  }
+  function onKey(e){ if(e.key==="Enter"&&!e.shiftKey){ e.preventDefault(); send(); } }
   return (
-    <div className="wrap"><div className="studio-teaser">
-      <div style={{fontSize:34}}>🧠</div>
-      <h2>The Strategist</h2>
-      <p>Your always-on content strategist — loaded with the full 123 Baby Box engine context: the voice, the pillars, the Casting Rule, the Milestone Map, the parent panel. Ask it anything, get a sharp answer in seconds. <b>Live once the engagement starts.</b></p>
-      <div className="st-cards">
-        <div className="st-c"><div style={{fontFamily:'JetBrains Mono',fontSize:9,letterSpacing:'.08em',color:'var(--accent)',marginBottom:5}}>ASK IT</div><div className="stq">"Give me 3 no-baby hooks for the 9-month container milestone."</div></div>
-        <div className="st-c"><div style={{fontFamily:'JetBrains Mono',fontSize:9,letterSpacing:'.08em',color:'var(--accent)',marginBottom:5}}>ASK IT</div><div className="stq">"Rewrite this caption to reassure, not shame."</div></div>
-        <div className="st-c"><div style={{fontFamily:'JetBrains Mono',fontSize:9,letterSpacing:'.08em',color:'var(--accent)',marginBottom:5}}>ASK IT</div><div className="stq">"What should we shoot for the back-to-daycare window?"</div></div>
-        <div className="st-c"><div style={{fontFamily:'JetBrains Mono',fontSize:9,letterSpacing:'.08em',color:'var(--accent)',marginBottom:5}}>ASK IT</div><div className="stq">"Turn the wake-window hit into a 6-week series."</div></div>
+    <div className="wrap"><div className="studio">
+      {seed&&<div className="st-ctx"><span className="stx-lbl">{seed.type==="brief"?"✦ Sharpening brief":"✦ Riding signal"}</span><b>{ctxLabel}</b><button className="stx-x" onClick={onClearSeed} title="clear context">×</button></div>}
+      <div className="st-scroll" ref={scroll}>
+        {msgs.length===0 && (
+          <div className="st-empty">
+            <div style={{fontSize:34}}>🧠</div>
+            <h2>The Strategist</h2>
+            <p>Loaded with the full 123 Baby Box engine — the voice, the four pillars, the Casting Rule, the Milestone Map, and your three-customer focus group. Ask for hooks, full production maps, series, or a gut-check.{seed?" It already has this "+(seed.type==="brief"?"brief":"signal")+" in context — just ask.":""}</p>
+            <div className="st-sugg">{sugg.map((s,i)=>(<button className="st-sg" key={i} onClick={()=>send(s.q)}><span className="sgl">{s.l}</span>{s.q}</button>))}</div>
+          </div>
+        )}
+        {msgs.map((m,i)=>(
+          <div className={"msg "+(m.role==="user"?"user":"bot")} key={i}>
+            <div className="msg-av">{m.role==="user"?"🍼":"🧠"}</div>
+            <div className="msg-bub">{m.role==="user"?m.content:(m.content?<>{renderMarkdown(m.content)}{busy&&i===msgs.length-1&&<span className="blink"></span>}</>:<span className="blink"></span>)}</div>
+          </div>
+        ))}
+        {err&&<div className="st-err">{err}</div>}
+      </div>
+      <div className="st-inputbar">
+        <textarea className="st-input" rows={1} value={input} placeholder="Ask the Strategist anything…" onChange={e=>setInput(e.target.value)} onKeyDown={onKey} disabled={busy}/>
+        <button className="st-send" onClick={()=>send()} disabled={busy||!input.trim()}>↑</button>
       </div>
     </div></div>
   );
@@ -842,13 +1249,13 @@ function WIPTab({kind}){
 }
 
 function App(){
-  const [nav,setNav]=useState("intel");const [memo,setMemo]=useState(true);const [brief,setBrief]=useState(null);const [diag,setDiag]=useState(false);
+  const [nav,setNav]=useState("intel");const [memo,setMemo]=useState(true);const [brief,setBrief]=useState(null);const [diag,setDiag]=useState(false);const [studioSeed,setStudioSeed]=useState(null);
   const NAV=[["intel","Intelligence Brief","📡"],["briefs","Content Briefs","📝"],["map","Milestone Map","🗺️","new"],["studio","Studio","🧠"],["how","How It Works","⚙️"],["cal","Calendar","📅","wip"],["perf","Performance","📊","wip"]];
-  const NAV_DESC={intel:"The trends we're watching + how to ride them",briefs:"Ready-to-shoot content ideas for your team",map:"The age-by-age logic behind every box",studio:"Your always-on content strategist (live at launch)",how:"How the engine turns a trend into a brief",cal:"A rolling content calendar (coming soon)",perf:"Reach + subscriber results (coming soon)"};
+  const NAV_DESC={intel:"The trends we're watching + how to ride them",briefs:"Ready-to-shoot content ideas for your team",map:"The age-by-age logic behind every box",studio:"Your always-on content strategist — ask it anything",how:"How the engine turns a trend into a brief",cal:"A rolling content calendar (coming soon)",perf:"Reach + subscriber results (coming soon)"};
   return (
     <>
       {memo&&<MondayMemo onClose={()=>setMemo(false)} onGo={()=>{setMemo(false);setNav("intel");}}/>}
-      {brief&&<BriefModal b={brief} onClose={()=>setBrief(null)} onStudio={()=>{setBrief(null);setNav("studio");}}/>}
+      {brief&&<BriefModal b={brief} onClose={()=>setBrief(null)} onStudio={(bb)=>{setStudioSeed({type:'brief',brief:bb});setBrief(null);setNav("studio");}}/>}
       {diag&&<DiagnosticInbox onClose={()=>setDiag(false)}/>}
       <div className="app">
         <div className="side">
@@ -866,10 +1273,10 @@ function App(){
             <div className="pill"><span className="live-dot"></span>Live · {WEEK}</div>
           </div>
           {!memo&&nav==="intel"&&(<div className="ticker"><div className="ticker-track">{[...TICKER,...TICKER].map((t,i)=>(<span key={i}><span className="tdot" style={{background:{signal:'var(--brand-mid)',pulse:'var(--coral)',decision:'var(--accent)',win:'var(--green)',warn:'var(--warn)'}[t[0]]}}></span>{t[1]}</span>))}</div></div>)}
-          {nav==="intel"&&<IntelBrief onDrop={()=>setNav("studio")} onOpen={setBrief}/>}
+          {nav==="intel"&&<IntelBrief onDrop={(txt)=>{setStudioSeed(txt?{type:'signal',text:txt}:null);setNav("studio");}} onOpen={setBrief}/>}
           {nav==="briefs"&&<ContentBriefs onOpen={setBrief}/>}
           {nav==="map"&&<MilestoneMap/>}
-          {nav==="studio"&&<StudioTeaser/>}
+          {nav==="studio"&&<Studio seed={studioSeed} onClearSeed={()=>setStudioSeed(null)}/>}
           {nav==="how"&&<HowItWorks/>}
           {nav==="cal"&&<WIPTab kind="cal"/>}
           {nav==="perf"&&<WIPTab kind="perf"/>}
