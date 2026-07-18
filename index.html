@@ -1181,29 +1181,10 @@ function Studio({seed,onClearSeed}){
 
 function HowItWorks(){
   const [step,setStep]=useState(0);const s=ENGINE_STEPS[step];
+  useEffect(()=>{ const t=setTimeout(()=>setStep(x=>(x+1)%ENGINE_STEPS.length),2600); return ()=>clearTimeout(t); },[step]);
   return (
     <div className="wrap">
-      <div style={{background:'linear-gradient(120deg,var(--brand-deep),var(--brand))',color:'#fff',borderRadius:20,padding:'26px 30px',marginBottom:20}}>
-        <div style={{fontFamily:'JetBrains Mono',fontSize:10,letterSpacing:'.12em',opacity:.8,marginBottom:8}}>HOW THE ENGINE WORKS</div>
-        <h2 style={{fontSize:27,margin:0,lineHeight:1.2,fontWeight:900}}>Your Monday opens with the brief, not the blank page.</h2>
-      </div>
-
-      <div className="section-eyebrow">The Read — the one chart that shaped everything</div>
-      <PerfChart/>
-
-      <div className="perf-card">
-        <h3>Reach isn't the problem. Keeping it is.</h3>
-        <div className="sub">One video reached 1.6M people. Here's what tends to happen to all that attention.</div>
-        <div className="funnel">
-          <div className="fstep"><div className="fnum" style={{color:'var(--brand)'}}>1.6M</div><div className="flbl">saw one video</div></div>
-          <div className="farrow">→</div>
-          <div className="fstep"><div className="fnum" style={{color:'var(--accent-deep)'}}>~10K–32K</div><div className="flbl">follow the account<br/>(TikTok · Instagram)</div></div>
-          <div className="farrow">→</div>
-          <div className="fstep"><div className="fnum" style={{color:'var(--coral)'}}>a fraction</div><div className="flbl">subscribe to the box</div></div>
-        </div>
-        <div className="perf-punch">Over a million people met the brand through a single video — but very few stayed. The audience is already showing up; what's missing is the gentle path from a one-time view, to a follow, to a box on the doorstep. Reach this brand has in spades. <b>Turning that reach into a following, and a following into subscribers, is the real opportunity</b> — and it's exactly what this engine is built to help with.</div>
-      </div>
-
+      <div className="section-eyebrow" style={{marginTop:0}}>What the engine does, every week</div>
       <div className="step-band">
         {[["01","Listen","We read your feed + the category every week."],["02","Calibrate","We check each idea against your brand's voice and your goals."],["03","Brief","You get production-ready briefs, not research."],["04","Produce","Your team shoots + distributes. The engine never posts for you."]].map((st,i)=>(<div className={"step-cell"+(i===3?" you":"")} key={i}><div className="step-num">{st[0]}</div><h4>{st[1]}</h4><p>{st[2]}</p></div>))}
       </div>
@@ -1239,7 +1220,7 @@ function DiagnosticInbox({onClose}){
   return (
     <div className="overlay" onClick={onClose}>
       <div className="modal" onClick={e=>e.stopPropagation()} style={{maxWidth:560}}>
-        <div className="modal-hero"><button className="x" onClick={onClose}>×</button><h1 style={{fontSize:23,margin:'2px 0',fontWeight:900}}>Diagnostic Inbox</h1><div style={{fontFamily:'Fraunces',fontStyle:'italic',fontSize:13.5,opacity:.92}}>3 questions only you can answer — they turn our read into your plan</div></div>
+        <div className="modal-hero"><button className="x" onClick={onClose}>×</button><h1 style={{fontSize:23,margin:'2px 0',fontWeight:900}}>Diagnostic Inbox <span className="nav-wip" style={{fontSize:9,verticalAlign:'middle',marginLeft:6}}>WIP</span></h1><div style={{fontFamily:'Fraunces',fontStyle:'italic',fontSize:13.5,opacity:.92}}>3 questions only you can answer — they turn our read into your plan</div></div>
         <div className="modal-body">
           {QS.map(Q=>(<div className="card" key={Q.id} style={{marginBottom:12,padding:16}}><div className="rail" style={{background:Q.rail}}></div>
             <h4 style={{fontSize:14,margin:'0 0 4px',color:'var(--brand)'}}>{Q.icon} {Q.q}</h4><p style={{fontSize:12.5,color:'var(--ink-soft)',margin:'0 0 12px',lineHeight:1.45}}>{Q.d}</p>
@@ -1271,7 +1252,7 @@ function WIPTab({kind}){
 
 function App(){
   const [nav,setNav]=useState("intel");const [memo,setMemo]=useState(true);const [brief,setBrief]=useState(null);const [diag,setDiag]=useState(false);const [studioSeed,setStudioSeed]=useState(null);const [intelFocus,setIntelFocus]=useState(null);
-  const NAV=[["intel","Intelligence Brief","📡"],["briefs","Content Briefs","📝"],["studio","Studio","🧠"],["map","Milestone Map","🗺️","wip"],["how","How It Works","⚙️"],["cal","Calendar","📅","wip"],["perf","Performance","📊","wip"]];
+  const NAV=[["intel","Intelligence Brief","📡"],["briefs","Content Briefs","📝"],["studio","Studio","🧠"],["map","Milestone Map","🗺️","wip"],["cal","Calendar","📅","wip"],["perf","Performance","📊","wip"]];
   const NAV_DESC={intel:"The trends we're watching + how to ride them",briefs:"Ready-to-shoot content ideas for your team",map:"The age-by-age logic behind every box",studio:"Your always-on content strategist — ask it anything",how:"How the engine turns a trend into a brief",cal:"A rolling content calendar (coming soon)",perf:"Reach + subscriber results (coming soon)"};
   return (
     <>
@@ -1283,8 +1264,8 @@ function App(){
           <div className="logo"><div className="logo-blocks"><div className="blk" style={{background:'var(--accent)'}}>1</div><div className="blk" style={{background:'var(--coral)',color:'#fff'}}>2</div><div className="blk" style={{background:'var(--teal)',color:'#fff'}}>3</div></div><div className="logo-name">BABY BOX</div><div className="logo-sub">a box of joy for your bundle of joy</div></div>
           {NAV.map(n=>(<button key={n[0]} title={NAV_DESC[n[0]]} className={"nav-item"+(nav===n[0]?" on":"")} onClick={()=>setNav(n[0])}><span className="ico">{n[2]}</span>{n[1]}{n[3]==="new"&&<span className="nav-new">NEW</span>}{n[3]==="wip"&&<span className="nav-wip">WIP</span>}</button>))}
           <div className="side-spacer"></div>
-          <Btn onClick={()=>setDiag(true)}>📮 Diagnostic Inbox</Btn>
-          <button className="howlink" onClick={()=>setNav("how")}>↓ how it works</button>
+          <button className="howlink" onClick={()=>setNav("how")}>⚙ how it works</button>
+          <Btn onClick={()=>setDiag(true)}>📮 Diagnostic Inbox <span className="nav-wip" style={{marginLeft:6}}>WIP</span></Btn>
         </div>
         <div className="main">
           <div className="page-head">
