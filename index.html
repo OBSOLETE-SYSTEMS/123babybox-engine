@@ -874,17 +874,6 @@ function IntelBrief({onDrop,onOpen,focus,onFocusDone}){
   );
 }
 
-function CastingMeter(){
-  const total=BRIEFS.length, noBaby=BRIEFS.filter(b=>b.noBaby).length, pct=Math.round(noBaby/total*100);
-  return (
-    <div className="meter-card">
-      <div className="meter-top"><span style={{fontSize:20}}>🎬</span><h3>Casting Independence</h3><span className="pill" style={{marginLeft:'auto'}}>{pct}% baby-free this week</span></div>
-      <div style={{fontSize:12.5,color:'var(--ink-soft)',lineHeight:1.5}}>Your feed today needs a baby (or a specific mom) on camera for ~100% of content — the growth ceiling. This week's mix breaks that: <b>{noBaby} of {total}</b> briefs can be produced with no baby on set.</div>
-      <div className="meter-bar"><div className="meter-fill" style={{width:pct+"%"}}>{noBaby} baby-free</div><div className="meter-rest">{total-noBaby} need a baby</div></div>
-      <div className="meter-legend"><span>Target trajectory: <b>~100% → ~50%</b> casting-dependent over Q1</span><span>Why it matters: <b>post on a schedule, build an owned face, out-produce rivals</b></span></div>
-    </div>
-  );
-}
 
 function ContentBriefs({onOpen}){
   const groups=Object.keys(PILLARS).map(pk=>({pk,...PILLARS[pk],briefs:BRIEFS.filter(b=>b.pillar===pk).sort((a,b)=>(getConv(b.id)?.score||0)-(getConv(a.id)?.score||0))}));
