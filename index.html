@@ -107,6 +107,17 @@
   .read-hint{background:var(--brand-light);border:1px solid #DBCEF4;border-radius:13px;padding:11px 15px;font-size:12px;line-height:1.55;color:var(--ink-soft);margin-bottom:16px;display:flex;gap:9px;align-items:flex-start}
   .read-hint b{color:var(--brand);font-weight:800}
   .read-hint .rh-ico{font-size:15px;flex-shrink:0;line-height:1.3}
+  .rh-list{margin:6px 0 0;padding-left:17px}
+  .rh-list li{margin:3px 0;line-height:1.45}
+  .drove-wrap{margin-top:11px;padding-top:11px;border-top:1px dashed var(--border)}
+  .drove-lbl{display:block;font-family:'JetBrains Mono';font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:800;margin-bottom:7px}
+  .drove-chips{display:flex;flex-direction:column;gap:6px}
+  .drove-chip{text-align:left;background:var(--paper);border:1px solid var(--border);border-radius:10px;padding:8px 11px;font-size:12px;line-height:1.35;color:var(--ink);font-family:'Inter';cursor:pointer;transition:.12s;font-weight:600}
+  .drove-chip:hover{border-color:var(--brand);background:var(--brand-light);color:var(--brand)}
+  .drove-chip.static{cursor:default;color:var(--ink-soft);font-weight:600}
+  .drove-chip.static:hover{border-color:var(--border);background:var(--paper);color:var(--ink-soft)}
+  .card.flash{animation:cardflash 1.7s ease-out}
+  @keyframes cardflash{0%{box-shadow:0 0 0 3px var(--accent)}18%{box-shadow:0 0 0 3px var(--accent)}100%{box-shadow:var(--shadow)}}
   .lnow{color:var(--green);font-weight:800;white-space:nowrap}
   .ltail{color:var(--accent-deep);font-weight:800;white-space:nowrap}
   .cardfoot{display:flex;align-items:flex-end;gap:8px;margin-top:11px}
@@ -769,8 +780,18 @@ function MondayMemo({onClose,onGo}){
   );
 }
 
-function IntelBrief({onDrop,onOpen}){
+function IntelBrief({onDrop,onOpen,focus,onFocusDone}){
   const [tab,setTab]=useState("pulse");
+  useEffect(()=>{
+    if(!focus) return;
+    setTab(focus.sub);
+    const t=setTimeout(()=>{
+      const el=document.getElementById("card-"+focus.sub+"-"+focus.idx);
+      if(el){ el.scrollIntoView({behavior:"smooth",block:"center"}); el.classList.add("flash"); setTimeout(()=>el.classList.remove("flash"),1700); }
+      onFocusDone&&onFocusDone();
+    },90);
+    return ()=>clearTimeout(t);
+  },[focus]);
   const tabs=[["pulse","Cultural Pulse",PULSE.length],["trends","Category + Research",TRENDS.length],["comps","Competitor Watch",COMPETITORS.length],["amb","Brand Ambassadors",AMBASSADORS.length],["panel","Focus Group",PANEL.length]];
   const briefById=id=>BRIEFS.find(b=>b.id===id);
   const Pips=({pillars})=>(<div className="pips">{(pillars||[]).map(pk=>(<span className="pip" key={pk} title={"This signal feeds the “"+PILLARS[pk].short+"” content pillar"} style={{background:PILLARS[pk].color+"1c",color:PILLARS[pk].color}}>{PILLARS[pk].glyph} {PILLARS[pk].short}</span>))}</div>);
@@ -794,7 +815,7 @@ function IntelBrief({onDrop,onOpen}){
           </div>
         </div>
         <div className="grid grid-2">{PULSE.map((p,i)=>(
-          <div className="card" key={i}><div className="rail" style={{background:p.v==="high"?"var(--coral)":"var(--accent-deep)"}}></div>
+          <div className="card" id={"card-pulse-"+i} key={i}><div className="rail" style={{background:p.v==="high"?"var(--coral)":"var(--accent-deep)"}}></div>
             <div className="card-head"><div className="glyph" style={{background:'var(--cream-deep)'}}>{p.glyph}</div><div className="eyebrow">{p.type}</div><div className="ch-right"><FreshChip live={p.live}/><span title="How strongly this signal is moving" className={"vbadge "+(p.v==="high"?"vhigh":p.v==="medium"?"vmed":"vlow")}>{p.v.toUpperCase()}</span></div></div>
             <h3>{p.h}</h3><p className="detail">{p.d}</p>
             <div className="playbox"><span className="plabel">▶ The Play</span>{p.play}</div>
@@ -806,7 +827,7 @@ function IntelBrief({onDrop,onOpen}){
       </>)}
 
       {tab==="trends" && (<div className="grid grid-2">{TRENDS.map((t,i)=>(
-        <div className="card" key={i}><div className="rail" style={{background:'var(--brand)'}}></div>
+        <div className="card" id={"card-trends-"+i} key={i}><div className="rail" style={{background:'var(--brand)'}}></div>
           <div className="card-head"><div className="glyph" style={{background:'var(--brand-light)'}}>{t.glyph}</div><div className="eyebrow">{t.type}</div><div className="ch-right"><FreshChip live={t.live}/><span title="How strongly this signal is moving" className={"vbadge "+(t.v==="high"?"vhigh":t.v==="medium"?"vmed":"vlow")}>{t.v.toUpperCase()}</span></div></div>
           <h3>{t.h}</h3><p className="detail">{t.d}</p>
           <div className="playbox"><span className="plabel">▶ Engine Angle</span>{t.play}</div>
@@ -874,6 +895,8 @@ function ContentBriefs({onOpen}){
     {ch:"TikTok",ic:"⚡",who:"Gen Z Mom",job:"Discovery — fast, raw, trend-native, a little funny. The reach + acquisition channel.",color:"var(--ink)"},
   ];
   const paid=BRIEFS.filter(b=>b.amplify&&b.amplify.includes("$"));
+  const byConv=(x,y)=>(getConv(y.id)?.score||0)-(getConv(x.id)?.score||0);
+  const topExp=[...experiments].sort(byConv).slice(0,3), topPaid=[...paid].sort(byConv).slice(0,3);
   const chIc={Facebook:"👵",Instagram:"💜",TikTok:"⚡"};
   return (
     <div className="wrap">
@@ -888,19 +911,18 @@ function ContentBriefs({onOpen}){
         <div className="chan-pb" key={i}><div className="cc-top"><span className="cc-ic" style={{background:c.color}}>{c.ic}</span><div><div className="cc-plat">{c.ch}</div><div className="cc-who">{c.who}</div></div></div><div className="cc-job">{c.job}</div><div className="cc-lead">{n} brief{n===1?"":"s"} lead here this week</div></div>
       );})}</div>
 
-      <div className="read-hint"><span className="rh-ico">👀</span><div><b>New here? How to read a brief:</b> each card is a ready-to-shoot content idea for your team, grouped by the four <b>content pillars</b> (the colored headings). The green <b>score</b> is how confident we are it'll perform — hover it for the math. <b>Click any card</b> to open the full brief: a full <b>production map</b> (what to shoot · how to edit · how to adapt for grandma-FB / millennial-IG / GenZ-TikTok · what to put paid behind), the words to post, and a live pre-test from your three core customers (Grandma/FB · Millennial mom/IG · Gen Z mom/TikTok). <b>🧪 test</b> flags an experiment; <b>no baby ✓</b> needs no baby on camera.</div></div>
-      <CastingMeter/>
+      <div className="read-hint"><span className="rh-ico">👀</span><div><b>New here? How to read a brief:</b><ul className="rh-list"><li>Cards are grouped by the four <b>content pillars</b> — the colored headings.</li><li>The green <b>score</b> is how confident we are it'll perform (hover it for the math).</li><li><b>Click any card</b> for the full brief: the production map (shoot · edit · adapt per channel · paid), the words to post, and a live pre-test from your three core customers.</li><li><b>🧪 test</b> = a flagged experiment · <b>no baby ✓</b> = needs no baby on camera.</li></ul></div></div>
 
       <div className="grid grid-2" style={{marginBottom:22}}>
         <div className="wk-mod">
-          <div className="wk-h">🧪 This week's experiments <span className="wk-ct">{experiments.length}</span></div>
-          <div className="wk-sub">Structured tests you can actually learn from — she's always ready to experiment. Proven plays earn trust; experiments are how we find what's next.</div>
-          {experiments.map((b,i)=>(<div className="exp-item" key={i} onClick={()=>onOpen(b)}><div className="exp-item-t">{chIc[b.lead.ch]} {b.concept}</div><div className="prod-meta"><span className="pm-k">Testing</span>{b.test.hyp}</div><div className="prod-meta"><span className="pm-k">Success</span>{b.test.metric}</div></div>))}
+          <div className="wk-h">🧪 This week's experiments <span className="wk-ct">{topExp.length}</span></div>
+          <div className="wk-sub">The three tests worth running first — structured so you can actually learn from them. Proven plays earn trust; experiments are how we find what's next.</div>
+          {topExp.map((b,i)=>(<div className="exp-item" key={i} onClick={()=>onOpen(b)}><div className="exp-item-t">{chIc[b.lead.ch]} {b.concept}</div><div className="prod-meta"><span className="pm-k">Testing</span>{b.test.hyp}</div><div className="prod-meta"><span className="pm-k">Success</span>{b.test.metric}</div></div>))}
         </div>
         <div className="wk-mod">
-          <div className="wk-h">📈 Paid plays this week <span className="wk-ct">{paid.length}</span></div>
-          <div className="wk-sub">Small, targeted amplification (the Willa's model) — boost what earns it organically, to the right audience on the right channel.</div>
-          {paid.map((b,i)=>(<div className="paid-item" key={i} onClick={()=>onOpen(b)}><span className="paid-ic">{chIc[b.lead.ch]}</span><div><div className="paid-t">{b.concept}</div><div className="paid-note">{b.amplify}</div></div></div>))}
+          <div className="wk-h">📈 Paid plays this week <span className="wk-ct">{topPaid.length}</span></div>
+          <div className="wk-sub">The three worth putting a little money behind (the Willa's model) — boost what earns it organically, to the right audience on the right channel.</div>
+          {topPaid.map((b,i)=>(<div className="paid-item" key={i} onClick={()=>onOpen(b)}><span className="paid-ic">{chIc[b.lead.ch]}</span><div><div className="paid-t">{b.concept}</div><div className="paid-note">{b.amplify}</div></div></div>))}
         </div>
       </div>
       {groups.map(g=>(
@@ -924,8 +946,9 @@ function ContentBriefs({onOpen}){
 
 function bandFor(s){return s>=82?"hi":s>=70?"mid":"lo";}
 const CHAN={fb:{ic:"👵",label:"Facebook",cls:"chan-fb"},ig:{ic:"💜",label:"Instagram",cls:"chan-ig"},tt:{ic:"⚡",label:"TikTok",cls:"chan-tt"}};
-function BriefModal({b,onClose,onStudio}){
+function BriefModal({b,onClose,onStudio,onIntel}){
   const c=getConv(b.id),P=PILLARS[b.pillar],reacts=panelReact(b);
+  const srcCards=[...PULSE.map((p,i)=>({...p,_sub:'pulse',_idx:i})),...TRENDS.map((t,i)=>({...t,_sub:'trends',_idx:i}))].filter(x=>x.drove===b.id);
   const [pmode,setPmode]=useState("static");
   const [live,setLive]=useState(null);
   async function runPanel(){
@@ -958,8 +981,16 @@ function BriefModal({b,onClose,onStudio}){
           </div>
         </div>
         <div className="modal-body">
-          <div className="m-sec"><div className="m-sec-label">💡 Why this brief, this week</div><div style={{fontSize:13,lineHeight:1.55,color:'var(--ink-soft)'}}>{b.why}</div></div>
-          <div className="m-sec"><div className="m-sec-label">📡 Intel that drove this</div>{b.drove.map((d,i)=>(<div className="intel-row" key={i}><span>↳</span><div>{d}</div></div>))}</div>
+          <div className="m-sec"><div className="m-sec-label">💡 Why this brief</div>
+            <div style={{fontSize:13,lineHeight:1.55,color:'var(--ink-soft)'}}>{b.why}</div>
+            <div className="drove-wrap"><span className="drove-lbl">↳ what led here{srcCards.length?" — tap a signal to open it":""}</span>
+              <div className="drove-chips">
+                {srcCards.length>0
+                  ? srcCards.map((x,i)=>(<button className="drove-chip" key={i} title="Open the signal card that drove this brief" onClick={()=>onIntel&&onIntel({sub:x._sub,idx:x._idx})}>{x.glyph} {x.h}</button>))
+                  : (b.drove||[]).map((d,i)=>(<span className="drove-chip static" key={i}>{d}</span>))}
+              </div>
+            </div>
+          </div>
 
           <div className="m-sec"><div className="m-sec-label">🎬 The Production Map — what to shoot + how to edit</div>
             <div className="prod-lead">Leads on <b>{b.lead.ch}</b> · {b.lead.who}</div>
@@ -977,7 +1008,7 @@ function BriefModal({b,onClose,onStudio}){
               <div className="edit-grid">
                 <div className="eg"><span className="pm-k">Hook</span>{b.edit.hook}</div>
                 <div className="eg"><span className="pm-k">Pace</span>{b.edit.pace}</div>
-                <div className="eg"><span className="pm-k">Captions</span>{b.edit.captions}</div>
+                <div className="eg"><span className="pm-k">On-screen text</span>{b.edit.captions}</div>
                 <div className="eg"><span className="pm-k">Audio</span>{b.edit.audio}</div>
                 <div className="eg"><span className="pm-k">Overlays</span>{b.edit.overlays}</div>
                 <div className="eg"><span className="pm-k">Length · Aspect</span>{b.edit.length} · {b.edit.aspect}</div>
@@ -1250,13 +1281,13 @@ function WIPTab({kind}){
 }
 
 function App(){
-  const [nav,setNav]=useState("intel");const [memo,setMemo]=useState(true);const [brief,setBrief]=useState(null);const [diag,setDiag]=useState(false);const [studioSeed,setStudioSeed]=useState(null);
+  const [nav,setNav]=useState("intel");const [memo,setMemo]=useState(true);const [brief,setBrief]=useState(null);const [diag,setDiag]=useState(false);const [studioSeed,setStudioSeed]=useState(null);const [intelFocus,setIntelFocus]=useState(null);
   const NAV=[["intel","Intelligence Brief","📡"],["briefs","Content Briefs","📝"],["studio","Studio","🧠"],["map","Milestone Map","🗺️","wip"],["how","How It Works","⚙️"],["cal","Calendar","📅","wip"],["perf","Performance","📊","wip"]];
   const NAV_DESC={intel:"The trends we're watching + how to ride them",briefs:"Ready-to-shoot content ideas for your team",map:"The age-by-age logic behind every box",studio:"Your always-on content strategist — ask it anything",how:"How the engine turns a trend into a brief",cal:"A rolling content calendar (coming soon)",perf:"Reach + subscriber results (coming soon)"};
   return (
     <>
       {memo&&<MondayMemo onClose={()=>setMemo(false)} onGo={()=>{setMemo(false);setNav("intel");}}/>}
-      {brief&&<BriefModal b={brief} onClose={()=>setBrief(null)} onStudio={(bb)=>{setStudioSeed({type:'brief',brief:bb});setBrief(null);setNav("studio");}}/>}
+      {brief&&<BriefModal b={brief} onClose={()=>setBrief(null)} onStudio={(bb)=>{setStudioSeed({type:'brief',brief:bb});setBrief(null);setNav("studio");}} onIntel={(t)=>{setBrief(null);setNav("intel");setIntelFocus(t);}}/>}
       {diag&&<DiagnosticInbox onClose={()=>setDiag(false)}/>}
       <div className="app">
         <div className="side">
@@ -1274,7 +1305,7 @@ function App(){
             <div className="pill"><span className="live-dot"></span>Live · {WEEK}</div>
           </div>
           {!memo&&nav==="intel"&&(<div className="ticker"><div className="ticker-track">{[...TICKER,...TICKER].map((t,i)=>(<span key={i}><span className="tdot" style={{background:{signal:'var(--brand-mid)',pulse:'var(--coral)',decision:'var(--accent)',win:'var(--green)',warn:'var(--warn)'}[t[0]]}}></span>{t[1]}</span>))}</div></div>)}
-          {nav==="intel"&&<IntelBrief onDrop={(txt)=>{setStudioSeed(txt?{type:'signal',text:txt}:null);setNav("studio");}} onOpen={setBrief}/>}
+          {nav==="intel"&&<IntelBrief focus={intelFocus} onFocusDone={()=>setIntelFocus(null)} onDrop={(txt)=>{setStudioSeed(txt?{type:'signal',text:txt}:null);setNav("studio");}} onOpen={setBrief}/>}
           {nav==="briefs"&&<ContentBriefs onOpen={setBrief}/>}
           {nav==="map"&&<MilestoneMap/>}
           {nav==="studio"&&<Studio seed={studioSeed} onClearSeed={()=>setStudioSeed(null)}/>}
